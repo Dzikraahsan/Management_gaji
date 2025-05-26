@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $delete = mysqli_query($conn, "DELETE FROM lembur WHERE id = '$id'");
 
     if ($delete) {
-        header("Location: lembur.php");
+        header("Location: lembur.php?hapus=sukses");
     } else {
         echo "Gagal menghapus data: " . mysqli_error($conn);
     }

@@ -14,9 +14,12 @@ $foto_lama = $karyawan['foto'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
+    $umur = $_POST['umur'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
     $jabatan_id = $_POST['jabatan_id'];
     $alamat = $_POST['alamat'];
     $no_hp = $_POST['no_hp'];
+    $status_ = $_POST['status_'];
     $nilai_rating = $_POST['nilai_rating'];
 
     // Upload foto baru jika ada
@@ -31,8 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $update = mysqli_query($conn, "UPDATE karyawan SET 
-        nama = '$nama', jabatan_id = '$jabatan_id', 
-        alamat = '$alamat', no_hp = '$no_hp', foto = '$foto'
+        nama = '$nama', umur = '$umur', jenis_kelamin = '$jenis_kelamin',
+        jabatan_id = '$jabatan_id', 
+        alamat = '$alamat', no_hp = '$no_hp', status_ = '$status_', foto = '$foto'
         WHERE id = $id");
 
     if ($update) {
@@ -44,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_query($conn, "INSERT INTO rating (karyawan_id, bulan, nilai_rating) VALUES ('$id', '$bulan', '$nilai_rating')");
         }
 
-        header("Location: karyawan.php");
+        header("Location: karyawan.php?edit=sukses");
         exit;
     } else {
         echo "Gagal mengupdate data.";
@@ -58,16 +62,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Edit Karyawan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: "Lexend Deca", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+
+        body h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+    </style>
 </head>
 <body>
 <div class="d-flex">
     <?php include 'includes/sidebar.php'; ?>
-    <div class="p-4 w-100">
+    <div class="container mt-4" style="width: 900px;">
         <h3>Edit Data Karyawan</h3>
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Nama</label>
                 <input type="text" name="nama" class="form-control" value="<?= $karyawan['nama'] ?>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Umur</label>
+                <input type="text" name="umur" class="form-control" value="<?= $karyawan['umur'] ?>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jenis Kelamin</label>
+                <input type="text" name="jenis_kelamin" class="form-control" value="<?= $karyawan['jenis_kelamin'] ?>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Jabatan</label>
@@ -89,6 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="mb-3">
                 <label class="form-label">No HP</label>
                 <input type="text" name="no_hp" class="form-control" value="<?= $karyawan['no_hp'] ?>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status Karyawan</label>
+                <input type="text" name="status_" class="form-control" value="<?= $karyawan['status_'] ?>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Foto Lama</label><br>

@@ -3,9 +3,12 @@ include 'koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
+    $umur = $_POST['umur'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
     $jabatan_id = $_POST['jabatan_id'];
     $alamat = $_POST['alamat'];
     $no_hp = $_POST['no_hp'];
+    $status_ = $_POST['status_'];
     $nilai_rating = $_POST['nilai_rating'];
     
     // Proses upload foto
@@ -18,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Simpan data karyawan
-    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, jabatan_id, alamat, no_hp, foto) 
-                                  VALUES ('$nama', '$jabatan_id', '$alamat', '$no_hp', '$foto')");
+    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto) 
+                                  VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto')");
     if ($query) {
         $karyawan_id = mysqli_insert_id($conn);
         $bulan = date('Y-m');
@@ -28,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($conn, "INSERT INTO rating (karyawan_id, bulan, nilai_rating) 
                              VALUES ('$karyawan_id', '$bulan', '$nilai_rating')");
 
-        header("Location: karyawan.php");
+        header("Location: karyawan.php?tambah=sukses");
+        
         exit;
     } else {
         echo "Gagal menambahkan data.";
@@ -42,16 +46,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Tambah Karyawan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: "Lexend Deca", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+
+        body h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
 <div class="d-flex">
     <?php include 'includes/sidebar.php'; ?>
-    <div class="p-4 w-100">
-        <h3>Tambah Data Karyawan</h3>
+    <div class="container mt-4" style="width: 900px;">
+        <h3>TAMBAH DATA KARYAWAN</h3>
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Nama</label>
                 <input type="text" name="nama" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Umur</label>
+                <input type="text" name="umur" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jenis Kelamin</label>
+                <input type="text" name="jenis_kelamin" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Jabatan</label>
@@ -72,6 +102,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="mb-3">
                 <label class="form-label">No HP</label>
                 <input type="text" name="no_hp" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status Karyawan</label>
+                <select name="status_" class="form-select" required>
+                    <option value="">-- Pilih Status --</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Foto</label>

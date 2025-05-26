@@ -9,5 +9,5 @@ mysqli_query($conn, "DELETE FROM rating WHERE karyawan_id = $id");
 // Baru hapus data karyawannya
 mysqli_query($conn, "DELETE FROM karyawan WHERE id = $id");
 
-header("Location: karyawan.php");
+header("Location: karyawan.php?hapus=sukses");
 ?>
