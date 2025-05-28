@@ -36,6 +36,10 @@ $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM gaji WHERE id = $i
             <h3>EDIT GAJI KARYAWAN</h3>
             <form action="" method="post">
               <div class="mb-3">
+                <label>Nama Karyawan</label>
+                <input type="text" name="nama_karyawan" class="form-control" value="<?= $data['nama_karyawan'] ?>" required>
+              </div>
+              <div class="mb-3">
                 <label>Bulan</label>
                 <input type="text" name="bulan" class="form-control" value="<?= $data['bulan'] ?>" required>
               </div>
@@ -60,12 +64,13 @@ $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM gaji WHERE id = $i
             </form>
             <?php
             if (isset($_POST['update'])) {
+              $nama_karyawan = $_POST['nama_karyawan'];
               $bulan = $_POST['bulan'];
               $gaji_pokok = $_POST['gaji_pokok'];
               $tarif_lembur = $_POST['tarif_lembur'];
               $bonus_rating = $_POST['bonus_rating'];
               $gaji = $_POST['total_gaji'];
-              mysqli_query($conn, "UPDATE gaji SET bulan = '$bulan', gaji_pokok = '$gaji_pokok', tarif_lembur = '$tarif_lembur', bonus_rating = '$bonus_rating', total_gaji = '$gaji' WHERE id = $id");
+              mysqli_query($conn, "UPDATE gaji SET nama_karyawan = '$nama_karyawan', bulan = '$bulan', gaji_pokok = '$gaji_pokok', tarif_lembur = '$tarif_lembur', bonus_rating = '$bonus_rating', total_gaji = '$gaji' WHERE id = $id");
               echo "<script>location.href='gaji.php';</script>";
             }
             ?>

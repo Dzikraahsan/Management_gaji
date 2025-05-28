@@ -75,7 +75,7 @@ include 'includes\sidebar.php';
         <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($conn, "SELECT gaji.id, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
+            $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
                                              FROM gaji 
                                              JOIN karyawan ON gaji.karyawan_id = karyawan.id 
                                              ORDER BY gaji.bulan DESC");
@@ -175,7 +175,8 @@ include 'includes\sidebar.php';
         });
     </script>
 
+    <!--  -->
+
 </body>
 </html>
-
 

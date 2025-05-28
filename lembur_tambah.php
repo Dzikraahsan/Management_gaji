@@ -3,10 +3,11 @@ include 'koneksi.php';
 
 if (isset($_POST['submit'])) {
     $jabatan_id = $_POST['jabatan_id'];
+    $nama_jabatan = $_POST['nama_jabatan'];
     $tarif_per_jam = $_POST['tarif_per_jam'];
 
-    $insert = mysqli_query($conn, "INSERT INTO lembur (jabatan_id, tarif_per_jam) 
-                                   VALUES ('$jabatan_id', '$tarif_per_jam')");
+    $insert = mysqli_query($conn, "INSERT INTO lembur (jabatan_id, nama_jabatan, tarif_per_jam) 
+                                   VALUES ('$jabatan_id', '$nama_jabatan', '$tarif_per_jam')");
 
     if ($insert) {
         header("Location: lembur.php");

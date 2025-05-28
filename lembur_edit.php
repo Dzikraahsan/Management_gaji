@@ -1,3 +1,17 @@
+
+<?php
+include 'koneksi.php';
+
+$id = $_GET['id'];
+$query = mysqli_query($conn, "SELECT * FROM lembur WHERE id = $id");
+if ($query && $row = mysqli_fetch_assoc($query)) {
+    $data = $row;
+} else {
+    echo "Data tidak ditemukan.";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,9 +44,16 @@
         <h3>EDIT TARIF LEMBUR KARYAWAN</h3>
         <form method="post">
           <div class="mb-3">
-                <label>Nama Jabatan</label>
-                <input type="number" name="tarif_per_jam" class="form-control" value="<?= $data['nama_jabatan'] ?>" required>
-                
+                <label for="jabatan_id" class="form-label">Nama Jabatan</label>
+                <select name="jabatan_id" id="jabatan_id" class="form-select" required>
+                    <option value="">-- Pilih Jabatan --</option>
+                    <?php
+                    $jabatan = mysqli_query($conn, "SELECT * FROM jabatan");
+                    while ($row = mysqli_fetch_assoc($jabatan)) {
+                        echo '<option value="' . $row['id'] . '">' . $row['nama_jabatan'] . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label>Tarif Per Jam</label>
@@ -44,22 +65,11 @@
 
         <?php
 
-        include 'koneksi.php';
-        
-        $id = $_GET['id'];
-        $query = mysqli_query($conn, "SELECT * FROM lembur WHERE id = $id");
-        if ($query && $row = mysqli_fetch_assoc($query)) {
-            $data = $row;
-        } else {
-            echo "Data tidak ditemukan.";
-            exit;
-        }
-
         if (isset($_POST['update'])) {
             $nama_jabatan = $_POST['nama_jabatan'];
             $tarif_per_jam = $_POST['tarif_per_jam'];
 
-            $update = mysqli_query($conn, "UPDATE lembur SET tarif_per_jam = '$tarif_per_jam' WHERE id = $id");
+            $update = mysqli_query($conn, "UPDATE lembur SET nama_jabatan = '$nama_jabatan', tarif_per_jam = '$tarif_per_jam' WHERE id = $id");
 
             if ($update) {
                 header("Location: lembur.php");

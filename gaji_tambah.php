@@ -72,12 +72,13 @@ include 'includes\sidebar.php';
     <?php
     if (isset($_POST['simpan'])) {
       $kid = $_POST['karyawan_id'];
+      $nama_karyawan = $_POST['nama_karyawan'];
       $bulan = $_POST['bulan'];
       $gaji_pokok = $_POST['gaji_pokok'];
       $tarif_lembur = $_POST['tarif_lembur'];
       $bonus_rating = $_POST['bonus_rating'];
       $gaji = $_POST['total_gaji'];
-      mysqli_query($conn, "INSERT INTO gaji (karyawan_id, bulan, gaji_pokok, tarif_lembur, bonus_rating, total_gaji) VALUES ('$kid', '$bulan', '$gaji_pokok', '$tarif_lembur', '$bonus_rating', '$gaji')");
+      mysqli_query($conn, "INSERT INTO gaji (karyawan_id, nama_karyawan, bulan, gaji_pokok, tarif_lembur, bonus_rating, total_gaji) VALUES ('$kid', '$nama_karyawan', '$bulan', '$gaji_pokok', '$tarif_lembur', '$bonus_rating', '$gaji')");
       echo "<script>location.href='gaji.php';</script>";
       header("Location: gaji.php?tambah=sukses");
       exit;

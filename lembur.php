@@ -120,8 +120,8 @@
         });
     </script>
 
-    <!-- Kode untuk footer -->
-    <?php include 'includes\footer.php'; ?>
+    
+
 
 </body>
 </html>
