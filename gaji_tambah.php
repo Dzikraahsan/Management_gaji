@@ -36,10 +36,10 @@ include 'includes\sidebar.php';
     <form action="" method="post">
       <div class="mb-3">
         <label>Nama Karyawan</label>
-        <select name="karyawan_id" class="form-control" required>
+        <select name="nama_karyawan" class="form-control" required>
           <option value="">-- Pilih --</option>
           <?php
-          $res = mysqli_query($conn, "SELECT * FROM karyawan");
+          $res = mysqli_query($conn, "SELECT * FROM gaji");
           while ($k = mysqli_fetch_assoc($res)) {
             echo "<option value='{$k['id']}'>{$k['nama']}</option>";
           }
@@ -73,6 +73,7 @@ include 'includes\sidebar.php';
     if (isset($_POST['simpan'])) {
       $kid = $_POST['karyawan_id'];
       $bulan = $_POST['bulan'];
+      $hama_karyawan = $_POST['nama_karyawan'];
       $gaji_pokok = $_POST['gaji_pokok'];
       $tarif_lembur = $_POST['tarif_lembur'];
       $bonus_rating = $_POST['bonus_rating'];

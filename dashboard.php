@@ -1,4 +1,6 @@
-<?php include 'koneksi.php'; ?>
+<?php include 'koneksi.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -168,5 +170,8 @@
         </div>
     </div>
 </div>
+
+    <?php include 'includes\footer.php'; ?>
+
 </body>
 </html>

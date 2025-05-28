@@ -75,7 +75,7 @@ include 'includes\sidebar.php';
         <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.bulan, gaji.total_gaji 
+            $query = mysqli_query($conn, "SELECT gaji.id, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
                                              FROM gaji 
                                              JOIN karyawan ON gaji.karyawan_id = karyawan.id 
                                              ORDER BY gaji.bulan DESC");
@@ -83,7 +83,7 @@ include 'includes\sidebar.php';
             ?>
             <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data['nama'] ?></td>
+                <td><?= $data['nama_karyawan'] ?></td>
                 <td><?= $data['bulan'] ?></td>
                 <td>Rp <?= number_format($data['total_gaji'], 0, ',', '.') ?></td>
                 <td>
@@ -175,9 +175,7 @@ include 'includes\sidebar.php';
         });
     </script>
 
-    <!--  -->
-
 </body>
 </html>
 
-<?php include 'includes\footer.php'; ?>
+
