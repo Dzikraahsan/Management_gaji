@@ -44,16 +44,16 @@ if ($query && $row = mysqli_fetch_assoc($query)) {
         <h3>EDIT TARIF LEMBUR KARYAWAN</h3>
         <form method="post">
           <div class="mb-3">
-                <label for="jabatan_id" class="form-label">Nama Jabatan</label>
-                <select name="jabatan_id" id="jabatan_id" class="form-select" required>
-                    <option value="">-- Pilih Jabatan --</option>
+                <label for="nama_jabatan" class="form-label">Nama Jabatan</label>
+                  <select name="jabatan_id" class="form-control" required>
                     <?php
-                    $jabatan = mysqli_query($conn, "SELECT * FROM jabatan");
-                    while ($row = mysqli_fetch_assoc($jabatan)) {
-                        echo '<option value="' . $row['id'] . '">' . $row['nama_jabatan'] . '</option>';
+                    $result = mysqli_query($conn, "SELECT * FROM jabatan");
+                    while ($jabatan = mysqli_fetch_assoc($result)) {
+                        $selected = $jabatan['id'] == $data['jabatan_id'] ? 'selected' : '';
+                        echo "<option value='{$jabatan['id']}' $selected>{$jabatan['nama_jabatan']}</option>";
                     }
                     ?>
-                </select>
+                  </select>                  
             </div>
             <div class="mb-3">
                 <label>Tarif Per Jam</label>
@@ -66,10 +66,11 @@ if ($query && $row = mysqli_fetch_assoc($query)) {
         <?php
 
         if (isset($_POST['update'])) {
-            $nama_jabatan = $_POST['nama_jabatan'];
+            $jabatan_id = $_POST['jabatan_id'];
             $tarif_per_jam = $_POST['tarif_per_jam'];
 
-            $update = mysqli_query($conn, "UPDATE lembur SET nama_jabatan = '$nama_jabatan', tarif_per_jam = '$tarif_per_jam' WHERE id = $id");
+            $update = mysqli_query($conn, "UPDATE lembur SET jabatan_id = '$jabatan_id', tarif_per_jam = '$tarif_per_jam' WHERE id = $id");
+
 
             if ($update) {
                 header("Location: lembur.php");
