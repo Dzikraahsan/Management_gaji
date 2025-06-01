@@ -48,6 +48,8 @@
             $gaji = $_POST['gaji_pokok'];
             mysqli_query($conn, "INSERT INTO jabatan (nama_jabatan, gaji_pokok) VALUES ('$nama', '$gaji')");
             echo "<script>window.location='jabatan.php';</script>";
+
+            header("Location: jabatan.php?tambah=sukses");
         }
         ?>
     </div>

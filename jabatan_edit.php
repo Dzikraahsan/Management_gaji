@@ -53,6 +53,8 @@ $row = mysqli_fetch_assoc($data);
             $gaji = $_POST['gaji_pokok'];
             mysqli_query($conn, "UPDATE jabatan SET nama_jabatan='$nama', gaji_pokok='$gaji' WHERE id=$id");
             echo "<script>window.location='jabatan.php';</script>";
+
+            header("Location: jabatan.php?edit=sukses");
         }
         ?>
     </div>

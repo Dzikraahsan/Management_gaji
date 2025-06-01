@@ -175,8 +175,6 @@ include 'includes\sidebar.php';
         });
     </script>
 
-    <!--  -->
-
 </body>
 </html>
 

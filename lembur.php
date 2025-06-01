@@ -32,10 +32,26 @@
     <div class="container mt-4" style="width: 900px;">
         <h3>DAFTAR TARIF LEMBUR KARYAWAN</h3>
 
+        <!-- Kode untuk menambahkan data karyawan -->
+        <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
+            <div id="notif-success" class="alert alert-success alert-dismissible fade show" role="alert">
+                ✅ Data karyawan berhasil ditambahkan.
+            </div>
+        <?php endif; ?>
+
+
         <!-- Kode untuk menghapus data karyawan -->
         <?php if (isset($_GET['hapus']) && $_GET['hapus'] === 'sukses') : ?>
             <div id="notif-alert" class="alert alert-success alert-dismissible fade show" role="alert">
                 ✅ Data karyawan berhasil dihapus.
+            </div>
+        <?php endif; ?>
+
+
+        <!-- Kode untuk mengedit data karyawan -->
+        <?php if (isset($_GET['edit']) && $_GET['edit'] == 'sukses') : ?>
+            <div id="notif-success" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
+                ✅ Data karyawan berhasil diperbarui.
             </div>
         <?php endif; ?>
 
@@ -72,6 +88,38 @@
         </table>
     </div>
 </div>
+
+    <!-- Kode script untuk animasi menambahkan data karyawan -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notif = document.getElementById("notif-success");
+            if (notif) {
+                setTimeout(() => {
+                    notif.classList.add("opacity-0", "translate-y-2", "transition-all", "duration-700");
+
+                    // Hapus dari DOM setelah animasi selesai
+                    setTimeout(() => {
+                        notif.remove();
+                    }, 700);
+                }, 3000); // Notifikasi muncul selama 3 detik
+            }
+        });
+    </script>
+
+    <!-- Pembatas -->
+
+    <!-- Kode script untuk animasi mengedit data karyawan -->
+    <script>
+        setTimeout(() => {
+            const notif = document.getElementById('notif-success');
+            if (notif) {
+                notif.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => notif.remove(), 700);
+            }
+        }, 3000); // Hilang dalam 3 detik
+    </script>
+
+    <!-- Pembatas -->
 
     <!-- Kode script untuk animasi menghapus data karyawan -->
     <script>

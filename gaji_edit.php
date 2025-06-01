@@ -72,6 +72,7 @@ $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM gaji WHERE id = $i
               $gaji = $_POST['total_gaji'];
               mysqli_query($conn, "UPDATE gaji SET nama_karyawan = '$nama_karyawan', bulan = '$bulan', gaji_pokok = '$gaji_pokok', tarif_lembur = '$tarif_lembur', bonus_rating = '$bonus_rating', total_gaji = '$gaji' WHERE id = $id");
               echo "<script>location.href='gaji.php';</script>";
+              header("Location: gaji.php?edit=sukses");
             }
             ?>
           </div>

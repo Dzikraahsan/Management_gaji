@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
                                    VALUES ('$jabatan_id', '$nama_jabatan', '$tarif_per_jam')");
 
     if ($insert) {
-        header("Location: lembur.php");
+        header("Location: lembur.php?tambah=sukses");
     } else {
         echo "Gagal menambahkan data: " . mysqli_error($conn);
     }

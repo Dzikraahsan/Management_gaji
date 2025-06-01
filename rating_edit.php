@@ -14,7 +14,7 @@ if (isset($_POST['update'])) {
                                    SET karyawan_id='$karyawan_id', bulan='$bulan', nilai_rating='$nilai_rating' 
                                    WHERE id = $id");
     if ($update) {
-        header("Location: rating.php");
+        header("Location: rating.php?edit=sukses");
     } else {
         echo "Gagal memperbarui data.";
     }

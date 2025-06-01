@@ -73,7 +73,7 @@ if ($query && $row = mysqli_fetch_assoc($query)) {
 
 
             if ($update) {
-                header("Location: lembur.php");
+                header("Location: lembur.php?edit=sukses");
             } else {
                 echo "Gagal mengupdate data: " . mysqli_error($conn);
             }

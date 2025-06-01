@@ -9,7 +9,7 @@ if (isset($_POST['simpan'])) {
     $query = mysqli_query($conn, "INSERT INTO rating (karyawan_id, bulan, nilai_rating) 
                                   VALUES ('$karyawan_id', '$bulan', '$nilai_rating')");
     if ($query) {
-        header("Location: rating.php");
+        hheader("Location: rating.php?tambah=sukses");
     } else {
         echo "Gagal menambahkan data.";
     }
