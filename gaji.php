@@ -83,7 +83,7 @@ include 'includes\sidebar.php';
             ?>
             <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data['nama_karyawan'] ?></td>
+                <td><?= $data['nama'] ?></td>
                 <td><?= $data['bulan'] ?></td>
                 <td>Rp <?= number_format($data['total_gaji'], 0, ',', '.') ?></td>
                 <td>

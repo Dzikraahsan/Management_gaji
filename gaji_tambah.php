@@ -63,25 +63,55 @@ include 'includes\sidebar.php';
         <input type="number" name="bonus_rating" class="form-control" required>
       </div>
       <div class="mb-3">
-        <label>Total Gaji</label>
-        <input type="number" name="total_gaji" class="form-control" required>
+        <label>Total Gaji (otomatis)</label>
+        <input type="number" name="total_gaji" class="form-control" readonly>
       </div>
       <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
       <a href="gaji.php" class="btn btn-secondary">Kembali</a>
     </form>
     <?php
     if (isset($_POST['simpan'])) {
-      $kid = $_POST['karyawan_id'];
-      $nama_karyawan = $_POST['nama_karyawan'];
+      $kid = $_POST['karyawan_id'] ?? '';
       $bulan = $_POST['bulan'];
       $gaji_pokok = $_POST['gaji_pokok'];
       $tarif_lembur = $_POST['tarif_lembur'];
       $bonus_rating = $_POST['bonus_rating'];
       $gaji = $_POST['total_gaji'];
-      mysqli_query($conn, "INSERT INTO gaji (karyawan_id, nama_karyawan, bulan, gaji_pokok, tarif_lembur, bonus_rating, total_gaji) VALUES ('$kid', '$nama_karyawan', '$bulan', '$gaji_pokok', '$tarif_lembur', '$bonus_rating', '$gaji')");
-      echo "<script>location.href='gaji.php';</script>";
+
+      // Fungsi untuk menghitung total gaji
+      $total_gaji = $gaji_pokok + $tarif_lembur + $bonus_rating;
+
+      mysqli_query($conn, "INSERT INTO gaji (karyawan_id, bulan, gaji_pokok, tarif_lembur, bonus_rating, total_gaji) 
+                                  VALUES ('$kid', '$bulan', '$gaji_pokok', '$tarif_lembur', '$bonus_rating', '$gaji')");
+
       header("Location: gaji.php?tambah=sukses");
+      echo "<script>location.href='gaji.php';</script>";
       exit;
 
     }
     ?>
+    </div>
+
+    <script>
+      const gajiPokokInput = document.querySelector('input[name="gaji_pokok"]');
+      const tarifLemburInput = document.querySelector('input[name="tarif_lembur"]');
+      const bulanInput = document.querySelector('input[name="bulan"]');
+      const totalGajiInput = document.querySelector('input[name="total_gaji"]');
+
+      function hitungTotal() {
+        const gajiPokok = parseInt(gajiPokokInput.value) || 0;
+        const tarifLembur = parseInt(tarifLemburInput.value) || 0;
+        const bulan = parseInt(bulanInput.value) || 0;
+
+        const total = (gajiPokok + tarifLembur) * bulan;
+        totalGajiInput.value = total;
+      }
+
+      gajiPokokInput.addEventListener('input', hitungTotal);
+      tarifLemburInput.addEventListener('input', hitungTotal);
+      bulanInput.addEventListener('input', hitungTotal);
+    </script>
+
+
+  </body>
+</html>

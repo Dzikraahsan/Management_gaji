@@ -70,13 +70,38 @@ $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM gaji WHERE id = $i
               $tarif_lembur = $_POST['tarif_lembur'];
               $bonus_rating = $_POST['bonus_rating'];
               $gaji = $_POST['total_gaji'];
+
+              // Fungsi kode untuk menghitung totl gaji
+              $total_gaji = $gaji_pokok + $tarif_lembur + $bonus_rating;
+
               mysqli_query($conn, "UPDATE gaji SET nama_karyawan = '$nama_karyawan', bulan = '$bulan', gaji_pokok = '$gaji_pokok', tarif_lembur = '$tarif_lembur', bonus_rating = '$bonus_rating', total_gaji = '$gaji' WHERE id = $id");
-              echo "<script>location.href='gaji.php';</script>";
               header("Location: gaji.php?edit=sukses");
+
+              echo "<script>location.href='gaji.php';</script>";   
             }
             ?>
           </div>
   </div>
   
+    <script>
+      const gajiPokokInput = document.querySelector('input[name="gaji_pokok"]');
+      const tarifLemburInput = document.querySelector('input[name="tarif_lembur"]');
+      const bulanInput = document.querySelector('input[name="bulan"]');
+      const totalGajiInput = document.querySelector('input[name="total_gaji"]');
+
+      function hitungTotal() {
+        const gajiPokok = parseInt(gajiPokokInput.value) || 0;
+        const tarifLembur = parseInt(tarifLemburInput.value) || 0;
+        const bulan = parseInt(bulanInput.value) || 0;
+
+        const total = (gajiPokok + tarifLembur) * bulan;
+        totalGajiInput.value = total;
+      }
+
+      gajiPokokInput.addEventListener('input', hitungTotal);
+      tarifLemburInput.addEventListener('input', hitungTotal);
+      bulanInput.addEventListener('input', hitungTotal);
+    </script>
+
 </body>
 </html>
