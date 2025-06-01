@@ -47,7 +47,7 @@ include 'includes\sidebar.php';
 
         <!-- Kode untuk menghapus data karyawan -->
         <?php if (isset($_GET['hapus']) && $_GET['hapus'] === 'sukses') : ?>
-            <div id="notif-alert" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow"">
+            <div id="notif-alert" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
                 ✅ Data karyawan berhasil dihapus.
             </div>
         <?php endif; ?>
@@ -55,7 +55,7 @@ include 'includes\sidebar.php';
 
         <!-- Kode untuk mengedit data karyawan -->
         <?php if (isset($_GET['edit']) && $_GET['edit'] == 'sukses') : ?>
-            <div id="notif-success" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
+            <div id="notif-edit" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
                 ✅ Data karyawan berhasil diperbarui.
             </div>
         <?php endif; ?>
@@ -88,7 +88,7 @@ include 'includes\sidebar.php';
                 <td>Rp <?= number_format($data['total_gaji'], 0, ',', '.') ?></td>
                 <td>
                     <a href="gaji_edit.php?id=<?= $data['id'] ?>" class="btn btn-warning btn-sm">Edit</a> <a href="gaji_detail.php?id=<?= $data['id'] ?>" class="btn btn-info btn-sm">Detail</a>
-                    <a href="gaji_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                    <a href="gaji_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" onclick="hapusDataGaji(event, this, <?= $data['id'] ?>)">Hapus</a>
                 </td>
             </tr>
             <?php } ?>
@@ -99,7 +99,7 @@ include 'includes\sidebar.php';
     <!-- Kode script untuk animasi menambahkan data karyawan -->
      <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const notif = document.getElementById("notif-success");
+            const notif = document.getElementById("notif-tambah");
             if (notif) {
                 setTimeout(() => {
                     notif.classList.add("opacity-0", "translate-y-2", "transition-all", "duration-700");
@@ -118,7 +118,7 @@ include 'includes\sidebar.php';
     <!-- Kode script untuk animasi mengedit data karyawan -->
     <script>
         setTimeout(() => {
-            const notif = document.getElementById('notif-success');
+            const notif = document.getElementById('notif-edit');
             if (notif) {
                 notif.classList.add('opacity-0', 'translate-y-2');
                 setTimeout(() => notif.remove(), 700);
@@ -144,7 +144,7 @@ include 'includes\sidebar.php';
 
         // Animasi untuk notifikasi sukses
         document.addEventListener("DOMContentLoaded", function () {
-            const notif = document.getElementById("notif-success");
+            const notif = document.getElementById("notif-tambah");
             if (notif) {
                 setTimeout(() => {
                     notif.classList.add("opacity-0", "translate-y-2", "transition-all", "duration-700");
@@ -174,6 +174,9 @@ include 'includes\sidebar.php';
             }
         });
     </script>
+
+    <!-- Pembatas -->
+
 
 </body>
 </html>
