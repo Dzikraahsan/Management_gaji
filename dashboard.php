@@ -124,7 +124,7 @@
         <?php
             $totalKaryawan = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM karyawan"));
             $totalJabatan = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM jabatan"));
-            $totalRating = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM rating"));; // Ganti dengan perhitungan rating jika ada sistem rating
+            $totalRating = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM rating"));; 
         ?>
         <div class="container mt-4" style="width: 880px;">
             <div class="row text-center justify-content-center mb-4">
