@@ -131,20 +131,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-3">
                 <label class="form-label">Rating Bulan Ini</label>
-                <select name="nilai_rating" class="form-select" required>
-                    <option value="">-- Pilih Rating --</option>
+                <div class="star-rating" style="font-size: 1.5rem; cursor: pointer;">
                     <?php
+                    $nilai_rating = isset($nilai_rating) ? $nilai_rating : 0;
                     for ($i = 1; $i <= 5; $i++) {
-                        $selected = $i == $nilai_rating ? 'selected' : '';
-                        echo "<option value='$i' $selected>$i</option>";
+                        $checked = $i == $nilai_rating ? 'checked' : '';
+                        echo "
+                            <input type='radio' id='star$i' name='nilai_rating' value='$i' $checked hidden>
+                            <label for='star$i' style='color: ".($i <= $nilai_rating ? '#FFD700' : '#ccc').";' onclick='setStars($i)'>★</label>
+                        ";
                     }
                     ?>
-                </select>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
             <a href="karyawan.php" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 </div>
+
+    <script>
+        function setStars(rating) {
+            for (let i = 1; i <= 5; i++) {
+                const star = document.querySelector("label[for='star" + i + "']");
+                star.style.color = i <= rating ? '#FFD700' : '#ccc';
+            }
+        }
+    </script>
+
 </body>
 </html>

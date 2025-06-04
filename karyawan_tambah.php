@@ -116,20 +116,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="file" name="foto" class="form-control" accept="image/*" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Rating (1 - 5)</label>
-                <select name="nilai_rating" class="form-select" required>
-                    <option value="">-- Pilih Rating --</option>
-                    <option value="1">1 - Sangat Buruk</option>
-                    <option value="2">2 - Buruk</option>
-                    <option value="3">3 - Cukup</option>
-                    <option value="4">4 - Baik</option>
-                    <option value="5">5 - Sangat Baik</option>
-                </select>
+                <label class="form-label">Rating Bulan Ini</label>
+                <div class="star-rating" style="font-size: 1.5rem; cursor: pointer;">
+                    <?php
+                    $nilai_rating = isset($nilai_rating) ? $nilai_rating : 0;
+                    for ($i = 1; $i <= 5; $i++) {
+                        $checked = $i == $nilai_rating ? 'checked' : '';
+                        echo "
+                            <input type='radio' id='star$i' name='nilai_rating' value='$i' $checked hidden>
+                            <label for='star$i' style='color: ".($i <= $nilai_rating ? '#FFD700' : '#ccc').";' onclick='setStars($i)'>★</label>
+                        ";
+                    }
+                    ?>
+                </div>
             </div>
             <button type="submit" class="btn btn-success">Simpan</button>
             <a href="karyawan.php" class="btn btn-secondary">Kembali</a>
         </form>
     </div>
 </div>
+
+     <script>
+        function setStars(rating) {
+            for (let i = 1; i <= 5; i++) {
+                const star = document.querySelector("label[for='star" + i + "']");
+                star.style.color = i <= rating ? '#FFD700' : '#ccc';
+            }
+        }
+    </script>
+
 </body>
 </html>
