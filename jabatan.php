@@ -55,7 +55,7 @@
             </div>
         <?php endif; ?>
 
-        <a href="jabatan_tambah.php" class="btn btn-primary mb-3">+ Tambah Jabatan</a>
+        <a href="jabatan_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Jabatan</a>
         <table class="table table-bordered">
             <thead>
                 <tr class="table-primary">
@@ -75,8 +75,9 @@
                         <td>" . $row['nama_jabatan'] . "</td>
                         <td>Rp " . number_format(is_numeric($row['gaji_pokok']) ? $row['gaji_pokok'] : 0, 0, ',', '.') . "</td>
                         <td>
-                        <a href='jabatan_edit.php?id=" . $row['id'] . "' class='btn btn-sm btn-warning'>Edit</a> <a href='jabatan_detail.php?id=" . $row['id'] . "' class='btn btn-info btn-sm'>Detail</a>
-                        <a href='jabatan_hapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-danger' onclick=\"return confirm('Yakin ingin menghapus?')\">Hapus</a>
+                        <a href='jabatan_edit.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-warning'>Edit</a> 
+                        <a href='jabatan_detail.php?id=" . $row['id'] . "' class='btn btn-outline-info btn-sm'>Detail</a>
+                        <a href='jabatan_hapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-danger' onclick=\"return confirm('Yakin ingin menghapus?')\">Hapus</a>
                         </td>
                     </tr>";
                     $no++;

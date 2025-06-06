@@ -64,7 +64,7 @@ $d = mysqli_fetch_array($data);
             </p>
             <p>Foto Karyawan  :</p>
         <img src="uploads/<?= $d['foto'] ?>" width="150" style="border: 2.5px solid rgb(0, 140, 255); border-radius: 10px;"> <br> <br>
-        <a href="karyawan.php" class="btn btn-secondary">Kembali</a>
+        <a href="karyawan.php" class="btn btn-outline-secondary">Kembali</a>
     </div>
     
 </body>

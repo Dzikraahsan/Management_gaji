@@ -59,8 +59,8 @@ if ($query && $row = mysqli_fetch_assoc($query)) {
                 <label>Tarif Per Jam</label>
                 <input type="number" name="tarif_per_jam" class="form-control" value="<?= $data['tarif_per_jam'] ?>" required>
             </div>
-            <button type="submit" name="update" class="btn btn-primary">Update</button>
-            <a href="lembur.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" name="update" class="btn btn-outline-primary">Update</button>
+            <a href="lembur.php" class="btn btn-outline-secondary">Kembali</a>
         </form>
 
         <?php

@@ -72,8 +72,8 @@ if (isset($_POST['update'])) {
                 <label for="nilai_rating" class="form-label">Nilai Rating</label>
                 <input type="number" name="nilai_rating" class="form-control" value="<?= $data['nilai_rating'] ?>" required>
             </div>
-            <button type="submit" name="update" class="btn btn-primary">Update</button>
-            <a href="rating.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" name="update" class="btn btn-outline-primary">Update</button>
+            <a href="rating.php" class="btn btn-outline-secondary">Kembali</a>
         </form>
     </div>
 </div>

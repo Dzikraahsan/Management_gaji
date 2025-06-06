@@ -45,7 +45,7 @@ $d = mysqli_fetch_array($data);
                 <h2>DETAIL JABATAN</h2>
                     <p><strong>Nama Jabatan ﾠﾠ: </strong> <?= $d['nama_jabatan'] ?></p>
                     <p><strong>Gaji Pokokﾠﾠ ﾠ ﾠﾠﾠ: </strong> Rp <?= number_format($d['gaji_pokok']) ?></p>
-                <a href="jabatan.php" class="btn btn-secondary">Kembali</a>
+                <a href="jabatan.php" class="btn btn-outline-secondary">Kembali</a>
             </div>
     </div>
     

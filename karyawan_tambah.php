@@ -130,8 +130,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ?>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Simpan</button>
-            <a href="karyawan.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-outline-success">Simpan</button>
+            <a href="karyawan.php" class="btn btn-outline-secondary">Kembali</a>
         </form>
     </div>
 </div>

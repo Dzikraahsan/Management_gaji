@@ -64,8 +64,8 @@ if (isset($_POST['submit'])) {
                 <label for="tarif_per_jam" class="form-label">Tarif Per Jam (Rp)</label>
                 <input type="number" name="tarif_per_jam" id="tarif_per_jam" class="form-control" required>
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
-            <a href="lembur.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" name="submit" class="btn btn-outline-primary">Simpan</button>
+            <a href="lembur.php" class="btn btn-outline-secondary">Kembali</a>
         </form>
     </div>
 </div>

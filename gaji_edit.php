@@ -59,8 +59,8 @@ $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM gaji WHERE id = $i
                 <label>Total Gaji</label>
                 <input type="number" name="total_gaji" class="form-control" value="<?= $data['total_gaji'] ?>" required>
               </div>
-              <button type="submit" name="update" class="btn btn-primary">Update</button>
-              <a href="gaji.php" class="btn btn-secondary">Kembali</a>
+              <button type="submit" name="update" class="btn btn-outline-primary">Update</button>
+              <a href="gaji.php" class="btn btn-outline-secondary">Kembali</a>
             </form>
             <?php
             if (isset($_POST['update'])) {

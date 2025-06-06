@@ -72,7 +72,7 @@
             </div>
         <?php endif; ?>
 
-        <a href="karyawan_tambah.php" class="btn btn-primary mb-3" style="margin-left: 10px;">+ Tambah Karyawan</a>
+        <a href="karyawan_tambah.php" class="btn btn-outline-primary mb-3" style="margin-left: 10px;">+ Tambah Karyawan</a>
         <div class="d-flex flex-wrap">
             <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
@@ -95,9 +95,9 @@
                         <h5 class="card-title mb-1" style="font-size: 18px;">' . $row['nama'] . '</h5>
                         <div class="text-warning mb-1">Rating: ' . $bintang . '</div>
                         <p class="card-text" style="margin-bottom: 10px;"><strong>' . $row['nama_jabatan'] . '</strong></p>
-                        <a href="karyawan_edit.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm" style="margin-left: -5px;">Edit</a>
-                        <a href="karyawan_detail.php?id=' . $row['id'] . '" class="btn btn-info btn-sm">Detail</a>
-                        <a href="karyawan_hapus.php?id=' . $row['id'] . '" onclick="hapusData(event, this, ' . $row['id'] . ')" class="btn btn-danger btn-sm">Hapus</a>
+                        <a href="karyawan_edit.php?id=' . $row['id'] . '" class="btn btn-outline-warning btn-sm" style="margin-left: -5px;">Edit</a>
+                        <a href="karyawan_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm">Detail</a>
+                        <a href="karyawan_hapus.php?id=' . $row['id'] . '" onclick="hapusData(event, this, ' . $row['id'] . ')" class="btn btn-outline-danger btn-sm">Hapus</a>
 
                     </div>
                 </div>';

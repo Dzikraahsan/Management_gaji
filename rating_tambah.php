@@ -67,8 +67,8 @@ if (isset($_POST['simpan'])) {
                 <label for="nilai_rating" class="form-label">Nilai Rating</label>
                 <input type="number" name="nilai_rating" class="form-control" required>
             </div>
-            <button type="submit" name="simpan" class="btn btn-success">Simpan</button>
-            <a href="rating.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" name="simpan" class="btn btn-outline-success">Simpan</button>
+            <a href="rating.php" class="btn btn-outline-secondary">Kembali</a>
         </form>
     </div>
 </div>

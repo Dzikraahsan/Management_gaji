@@ -60,7 +60,7 @@ include 'includes\sidebar.php';
             </div>
         <?php endif; ?>
 
-    <a href="gaji_tambah.php" class="btn btn-primary mb-3">+ Tambah Gaji</a>
+    <a href="gaji_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Gaji</a>
 
     <table class="table table-bordered">
         <thead class="table-primary">
@@ -87,8 +87,9 @@ include 'includes\sidebar.php';
                 <td><?= $data['bulan'] ?></td>
                 <td>Rp <?= number_format($data['total_gaji'], 0, ',', '.') ?></td>
                 <td>
-                    <a href="gaji_edit.php?id=<?= $data['id'] ?>" class="btn btn-warning btn-sm">Edit</a> <a href="gaji_detail.php?id=<?= $data['id'] ?>" class="btn btn-info btn-sm">Detail</a>
-                    <a href="gaji_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" onclick="hapusDataGaji(event, this, <?= $data['id'] ?>)">Hapus</a>
+                    <a href="gaji_edit.php?id=<?= $data['id'] ?>" class="btn btn-outline-warning btn-sm">Edit</a> 
+                    <a href="gaji_detail.php?id=<?= $data['id'] ?>" class="btn btn-outline-info btn-sm">Detail</a>
+                    <a href="gaji_hapus.php?id=<?= $data['id'] ?>" class="btn btn-outline-danger btn-sm" onclick="hapusDataGaji(event, this, <?= $data['id'] ?>)">Hapus</a>
                 </td>
             </tr>
             <?php } ?>

@@ -55,7 +55,7 @@
             </div>
         <?php endif; ?>
 
-        <a href="lembur_tambah.php" class="btn btn-primary mb-3">+ Tambah Tarif</a>
+        <a href="lembur_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Tarif</a>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr class="table-primary">
@@ -78,8 +78,9 @@
                         <td>' . $row['nama_jabatan'] . '</td>
                         <td>Rp ' . number_format($row['tarif_per_jam'], 0, ',', '.') . '</td>
                         <td>
-                            <a href="lembur_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-warning">Edit</a> <a href="lembur_detail.php?id=' . $row['id'] . '" class="btn btn-info btn-sm">Detail</a>
-                            <a href="lembur_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
+                            <a href="lembur_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-warning">Edit</a> 
+                            <a href="lembur_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm">Detail</a>
+                            <a href="lembur_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
                         </td>
                     </tr>';
                 }

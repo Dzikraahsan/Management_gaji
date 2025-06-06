@@ -66,8 +66,8 @@ include 'includes\sidebar.php';
         <label>Total Gaji (otomatis)</label>
         <input type="number" name="total_gaji" class="form-control" readonly>
       </div>
-      <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-      <a href="gaji.php" class="btn btn-secondary">Kembali</a>
+      <button type="submit" name="simpan" class="btn btn-outline-primary">Simpan</button>
+      <a href="gaji.php" class="btn btn-outline-secondary">Kembali</a>
     </form>
     <?php
     if (isset($_POST['simpan'])) {

@@ -48,7 +48,7 @@ $d = mysqli_fetch_array($data);
                 <p><strong>Nama Karyawan ﾠﾠ: </strong> <?= $d['nama'] ?></p>
                 <p><strong>Bulan ﾠﾠﾠﾠﾠﾠﾠﾠ  ﾠﾠﾠﾠ : </strong> <?= $d['bulan'] ?></p>
                 <p><strong>Nilai Rating                 : </strong> <?= $d['nilai_rating'] ?></p>
-            <a href="rating.php" class="btn btn-secondary">Kembali</a>
+            <a href="rating.php" class="btn btn-outline-secondary">Kembali</a>
         </div>
     </div>
     

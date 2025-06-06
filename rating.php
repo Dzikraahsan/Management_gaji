@@ -55,7 +55,7 @@
             </div>
         <?php endif; ?>
 
-        <a href="rating_tambah.php" class="btn btn-primary mb-3">+ Tambah Rating</a>
+        <a href="rating_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Rating</a>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr class="table-primary">
@@ -80,9 +80,9 @@
                         <td>' . $row['bulan'] . '</td>
                         <td>' . $row['nilai_rating'] . '</td>
                         <td>
-                            <a href="rating_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-warning">Edit</a> 
-                            <a href="rating_detail.php?id=' . $row['id'] . '" class="btn btn-info btn-sm">Detail</a>
-                            <a href="rating_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
+                            <a href="rating_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-warning">Edit</a> 
+                            <a href="rating_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm">Detail</a>
+                            <a href="rating_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
                         </td>
                     </tr>';
                 }

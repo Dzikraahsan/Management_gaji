@@ -47,7 +47,7 @@ $d = mysqli_fetch_array($data);
             <h2>DETAIL TARIF LEMBUR</h2>
                 <p><strong>Jabatan                :</strong> <?= $d['nama_jabatan'] ?></p>
                 <p><strong>Tarif Per Jam    :</strong> Rp <?= number_format($d['tarif_per_jam']) ?></p>
-            <a href="lembur.php" class="btn btn-secondary">Kembali</a>
+            <a href="lembur.php" class="btn btn-outline-secondary">Kembali</a>
         </div>
         
     </div>

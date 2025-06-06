@@ -51,7 +51,7 @@ $d = mysqli_fetch_array($data);
                     <p><strong>Tarif Lembur           :  </strong> Rp <?= number_format($d['tarif_lembur']) ?></p>
                     <p><strong>Bonus Rating          :  </strong> <?= number_format($d['bonus_rating']) ?></p>
                     <p><strong>Total Gaji                  :  </strong> Rp <?= number_format($d['total_gaji']) ?></p>
-                <a href="gaji.php" class="btn btn-secondary">Kembali</a>
+                <a href="gaji.php" class="btn btn-outline-secondary">Kembali</a>
             </div>
     </div>
     
