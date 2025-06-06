@@ -19,7 +19,7 @@ Ini adalah proyek *sederhana* Sistem Management Gaji yang dibuat pakai PHP + MyS
 ## 📸 Cuplikan Tampilan
 (Sisipkan screenshot atau GIF di sini, contoh:)
 
-![Dashboard Screenshot](uploads/dashboard.png.png)
+![Dashboard Screenshot](uploads/dashboard.png)
 
 ## 📦 Cara Install (Lokal)
 1. Clone repo ini:
