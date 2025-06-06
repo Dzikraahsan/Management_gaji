@@ -53,3 +53,4 @@ CREATE TABLE gaji (
   total_gaji DECIMAL(15,2),
   FOREIGN KEY (karyawan_id) REFERENCES karyawan(id)
 );
+
