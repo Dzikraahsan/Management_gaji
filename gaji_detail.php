@@ -45,7 +45,7 @@ $d = mysqli_fetch_array($data);
         <?php include 'includes/sidebar.php'; ?>
             <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 450px;">
                 <h2>DETAIL GAJI KARYAWAN</h2>
-                    <p><strong>Nama Karyawan  :  </strong> <?= $d['nama_karyawan'] ?></p>
+                    <p><strong>Nama Karyawan  :  </strong> <?= $d['nama'] ?></p>
                     <p><strong>Bulan                           :  </strong> <?= $d['bulan'] ?></p>
                     <p><strong>Gaji Pokok               :  </strong> Rp <?= number_format($d['gaji_pokok']) ?></p>
                     <p><strong>Tarif Lembur           :  </strong> Rp <?= number_format($d['tarif_lembur']) ?></p>

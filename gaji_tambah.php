@@ -71,7 +71,7 @@ include 'includes\sidebar.php';
     </form>
     <?php
     if (isset($_POST['simpan'])) {
-      $kid = $_POST['karyawan_id'] ?? '';
+      $kid = $_POST['karyawan_id'];
       $bulan = $_POST['bulan'];
       $gaji_pokok = $_POST['gaji_pokok'];
       $tarif_lembur = $_POST['tarif_lembur'];

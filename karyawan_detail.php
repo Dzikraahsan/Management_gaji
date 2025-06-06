@@ -44,16 +44,16 @@ $d = mysqli_fetch_array($data);
 </head>
 <body>
 
-    <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 750px;">
+    <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 790px;">
         <h2>DETAIL KARYAWAN</h2>
-            <p><strong>Nama  ﾠﾠﾠﾠﾠﾠﾠﾠ :          </strong> <?= $d['nama'] ?></p>
-            <p><strong>Umur                      :          </strong> <?= $d['umur'] ?></p>
-            <p><strong>Jenis Kelaminﾠ :          </strong> <?= $d['jenis_kelamin'] ?></p>
-            <p><strong>Alamatﾠﾠﾠﾠﾠﾠﾠﾠ :          </strong> <?= $d['alamat'] ?></p>
-            <p><strong>No.HPﾠﾠﾠﾠﾠﾠﾠﾠﾠ :          </strong> <?= $d['no_hp'] ?></p>
-            <p><strong>Statusﾠ                  :          </strong> <?= $d['status_'] ?></p>
-            <p><strong>Jabatan      ﾠﾠﾠﾠ :          </strong> <?= $d['nama_jabatan'] ?></p>
-            <p><strong>Rating      ﾠﾠﾠﾠ     :          </strong> 
+            <p><strong>Nama  ﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['nama'] ?></p>
+            <p><strong>Umur                                    :          </strong> <?= $d['umur'] ?></p>
+            <p><strong>Jenis Kelaminﾠ               :          </strong> <?= $d['jenis_kelamin'] ?></p>
+            <p><strong>Alamatﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['alamat'] ?></p>
+            <p><strong>No.HPﾠﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['no_hp'] ?></p>
+            <p><strong>Statusﾠ                                :          </strong> <?= $d['status_'] ?></p>
+            <p><strong>Jabatan      ﾠﾠﾠﾠ               :          </strong> <?= $d['nama_jabatan'] ?></p>
+            <p><strong>Rating      ﾠﾠﾠﾠ                   :          </strong> 
                 <?php 
                     $rating = isset($d['nilai_rating']) ? (int)$d['nilai_rating'] : 0;
                     for ($i = 0; $i < $rating; $i++) {
@@ -62,6 +62,7 @@ $d = mysqli_fetch_array($data);
                     if ($rating == 0) echo 'Belum ada rating';
                 ?>
             </p>
+            <p><strong>Tanggal Bergabung   :          </strong> <?= $d['tgl_bergabung'] ?></p>
             <p>Foto Karyawan  :</p>
         <img src="uploads/<?= $d['foto'] ?>" width="150" style="border: 2.5px solid rgb(0, 140, 255); border-radius: 10px;"> <br> <br>
         <a href="karyawan.php" class="btn btn-outline-secondary">Kembali</a>

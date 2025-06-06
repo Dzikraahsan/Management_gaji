@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $no_hp = $_POST['no_hp'];
     $status_ = $_POST['status_'];
     $nilai_rating = $_POST['nilai_rating'];
+    $tgl_bergabung = $_POST['tgl_bergabung'];
     
     // Proses upload foto
     $foto = $_FILES['foto']['name'];
@@ -21,8 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Simpan data karyawan
-    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto) 
-                                  VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto')");
+    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto, tgl_bergabung)
+                              VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto', '$tgl_bergabung')");
+
     if ($query) {
         $karyawan_id = mysqli_insert_id($conn);
         $bulan = date('Y-m');
@@ -81,7 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-3">
                 <label class="form-label">Jenis Kelamin</label>
-                <input type="text" name="jenis_kelamin" class="form-control" required>
+                <select name="status_" class="form-select" required>
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Jabatan</label>
@@ -129,6 +135,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     ?>
                 </div>
+            <div class="mb-3">
+                <label class="form-label">Tanggal Bergabung</label>
+                <input type="date" name="tgl_bergabung" class="form-control" required>
+            </div>
+
             </div>
             <button type="submit" class="btn btn-outline-success">Simpan</button>
             <a href="karyawan.php" class="btn btn-outline-secondary">Kembali</a>
