@@ -24,7 +24,7 @@ Ini adalah proyek *sederhana* Sistem Management Gaji yang dibuat pakai PHP + MyS
 ## 📦 Cara Install (Lokal)
 1. Clone repo ini:
    ```bash
-   git clone https://github.com/kamu/sistem-management-gaji.git
+   git clone https://github.com/Dzikraahsan/sistem-management-gaji.git
 2. Import file database.sql ke MySQL
 
 3. Letakkan folder ini di htdocs (kalau pakai XAMPP)
