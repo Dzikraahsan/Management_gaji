@@ -24,13 +24,76 @@
             font-size: 30px;
         }
 
+        /* kode responsive */
+        @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+            padding: 0px;
+            width: 678px;
+        }
+
+        .h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .no {
+            font-size: 15px;
+        }
+
+        .name {
+            font-size: 12.5px;
+        }
+
+        .number {
+            font-size: 12.5px;
+        }
+
+        .aksi-btn {
+            display: inline-block;
+            width: auto;
+            text-align: center;
+            margin: 2px 3px;
+            font-size: 11px;             /* Ukuran teks lebih kecil */
+            padding: 3px 6px;            /* Padding kecil biar tombol gak gede */
+            white-space: nowrap;
+            line-height: 1.2;            /* Biar vertikal spacing-nya rapet */
+            border-radius: 5px;          /* (Opsional) Biar tombol lebih modern */
+        }
+
+        .table-primary {
+            font-size: 10px;
+        }
+
+        .col-no {
+            width: 5%;
+            text-align: center;
+        }
+
+        .col-nama {
+            width: 22%;
+        }
+
+        .col-gaji {
+            width: 30%;
+            text-align: left;
+        }
+
+        .col-aksi {
+            width: 30%;
+            text-align: center;
+            white-space: nowrap; /* Biar tombol gak bikin kolom melebar */
+        }
+
+    }
+
     </style>
 </head>
 <body>
 <div class="d-flex">
     <?php include 'includes/sidebar.php'; ?>
     <div class="container mt-4" style="width: 900px;">
-        <h3>DAFTAR JABATAN</h3>
+        <h3 class="h3">DAFTAR JABATAN</h3>
 
         <!-- Kode untuk menambahkan data karyawan -->
         <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
@@ -58,11 +121,11 @@
         <a href="jabatan_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Jabatan</a>
         <table class="table table-bordered">
             <thead>
-                <tr class="table-primary">
-                    <th>No</th>
-                    <th>Nama Jabatan</th>
-                    <th>Gaji Pokok</th>
-                    <th>Aksi</th>
+               <tr class="table-primary">
+                    <th class="col-no">No</th>
+                    <th class="col-nama">Nama Jabatan</th>
+                    <th class="col-gaji">Gaji Pokok</th>
+                    <th class="col-aksi">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,13 +134,13 @@
                 $query = mysqli_query($conn, "SELECT * FROM jabatan");
                 while ($row = mysqli_fetch_assoc($query)) {
                     echo "<tr>
-                        <td>" . $no . "</td>
-                        <td>" . $row['nama_jabatan'] . "</td>
-                        <td>Rp " . number_format(is_numeric($row['gaji_pokok']) ? $row['gaji_pokok'] : 0, 0, ',', '.') . "</td>
-                        <td>
-                        <a href='jabatan_edit.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-warning'>Edit</a> 
-                        <a href='jabatan_detail.php?id=" . $row['id'] . "' class='btn btn-outline-info btn-sm'>Detail</a>
-                        <a href='jabatan_hapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-danger' onclick=\"return confirm('Yakin ingin menghapus?')\">Hapus</a>
+                        <td class='no'>" . $no . "</td>
+                        <td class='name'>" . $row['nama_jabatan'] . "</td>
+                        <td class='number'>Rp " . number_format(is_numeric($row['gaji_pokok']) ? $row['gaji_pokok'] : 0, 0, ',', '.') . "</td>
+                        <td class='button'>
+                            <a href='jabatan_edit.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-warning aksi-btn'>Edit</a> 
+                            <a href='jabatan_detail.php?id=" . $row['id'] . "' class='btn btn-outline-info btn-sm aksi-btn'>Detail</a>
+                            <a href='jabatan_hapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-danger aksi-btn' onclick=\"return confirm('Yakin ingin menghapus?')\">Hapus</a>
                         </td>
                     </tr>";
                     $no++;

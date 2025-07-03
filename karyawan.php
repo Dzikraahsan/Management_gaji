@@ -41,13 +41,51 @@
             border-radius: 5px;
         }
 
+        /* kode responsive */
+        @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+            padding: 0px;
+            width: 678px;
+        }
+
+        .container {
+            width: 100% !important;
+            padding: 0 0px;
+        }
+
+        .kartu-karyawan {
+            margin-left: 10px;
+            width: 180px;
+            margin: 11px;
+        }
+
+        .h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .aksi-btn {
+            display: inline-block;
+            text-align: center;
+            font-size: 10px;          /* Ukuran teks kecil */
+            padding: 2px 6px;         /* Padding kecil untuk tinggi+lebar tombol */
+            margin: 2px;
+            line-height: 1;           /* Supaya tinggi teks gak tinggi-tinggi amat */
+            border-radius: 4px;
+            white-space: nowrap;
+            width: fit-content;       /* Ini kuncinya: tombol nyesuaiin isi! */
+        }
+
+    }
+
     </style>
 </head>
 <body>
 <div class="d-flex">
     <?php include 'includes/sidebar.php'; ?>
     <div class="container mt-4" style="width: 905px;">
-        <h3 class="mb-3">DAFTAR KARYAWAN</h3>
+        <h3 class="h3">DAFTAR KARYAWAN</h3>
 
         <!-- Kode untuk menambahkan data karyawan -->
         <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
@@ -95,9 +133,9 @@
                         <h5 class="card-title mb-1" style="font-size: 18px;">' . $row['nama'] . '</h5>
                         <div class="text-warning mb-1">Rating: ' . $bintang . '</div>
                         <p class="card-text" style="margin-bottom: 10px;"><strong>' . $row['nama_jabatan'] . '</strong></p>
-                        <a href="karyawan_edit.php?id=' . $row['id'] . '" class="btn btn-outline-warning btn-sm" style="margin-left: -5px;">Edit</a>
-                        <a href="karyawan_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm">Detail</a>
-                        <a href="karyawan_hapus.php?id=' . $row['id'] . '" onclick="hapusData(event, this, ' . $row['id'] . ')" class="btn btn-outline-danger btn-sm">Hapus</a>
+                        <a href="karyawan_edit.php?id=' . $row['id'] . '" class="btn btn-outline-warning btn-sm aksi-btn" style="margin-left: -5px;">Edit</a>
+                        <a href="karyawan_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm aksi-btn">Detail</a>
+                        <a href="karyawan_hapus.php?id=' . $row['id'] . '" onclick="hapusData(event, this, ' . $row['id'] . ')" class="btn btn-outline-danger btn-sm aksi-btn">Hapus</a>
 
                     </div>
                 </div>';

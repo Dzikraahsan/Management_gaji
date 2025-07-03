@@ -1,7 +1,6 @@
 <?php
 include 'koneksi.php';
 include 'includes\header.php';
-include 'includes\sidebar.php';
 $id = $_GET['id'];
 $data = mysqli_query($conn, "SELECT * FROM karyawan
     JOIN jabatan ON karyawan.jabatan_id = jabatan.id 
@@ -40,33 +39,130 @@ $d = mysqli_fetch_array($data);
             margin-top: 1rem;
         }
 
+        .h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+         .detail-wrapper {
+            width: 600px;
+            padding: 10px;
+        }
+
+        .row-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #222;
+            min-width: 150px;
+            white-space: nowrap;
+        }
+
+        .value {
+            color: #444;
+            text-align: right;
+            word-break: break-word;
+        }
+
+         /* kode responsive */
+        @media (max-width: 768px) {
+
+        .detail-wrapper {
+            width: 450px;
+        }
+
+        .row-detail {
+            flex-direction: column;
+            align-items: flex-start;
+
+        }
+
+        .label, .value {
+            text-align: left;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-weight: 700;
+        }
+
+        .container, .rectangle {
+            height: 150vh;
+        }
+
+        }
+
+
     </style>
 </head>
 <body>
 
-    <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 790px;">
-        <h2>DETAIL KARYAWAN</h2>
-            <p><strong>Nama  ﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['nama'] ?></p>
-            <p><strong>Umur                                    :          </strong> <?= $d['umur'] ?></p>
-            <p><strong>Jenis Kelaminﾠ               :          </strong> <?= $d['jenis_kelamin'] ?></p>
-            <p><strong>Alamatﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['alamat'] ?></p>
-            <p><strong>No.HPﾠﾠﾠﾠﾠﾠﾠﾠﾠ               :          </strong> <?= $d['no_hp'] ?></p>
-            <p><strong>Statusﾠ                                :          </strong> <?= $d['status_'] ?></p>
-            <p><strong>Jabatan      ﾠﾠﾠﾠ               :          </strong> <?= $d['nama_jabatan'] ?></p>
-            <p><strong>Rating      ﾠﾠﾠﾠ                   :          </strong> 
-                <?php 
-                    $rating = isset($d['nilai_rating']) ? (int)$d['nilai_rating'] : 0;
-                    for ($i = 0; $i < $rating; $i++) {
-                        echo '⭐';
-                    }
-                    if ($rating == 0) echo 'Belum ada rating';
-                ?>
-            </p>
-            <p><strong>Tanggal Bergabung   :          </strong> <?= $d['tgl_bergabung'] ?></p>
-            <p>Foto Karyawan  :</p>
-        <img src="uploads/<?= $d['foto'] ?>" width="150" style="border: 2.5px solid rgb(0, 140, 255); border-radius: 10px;"> <br> <br>
-        <a href="karyawan.php" class="btn btn-outline-secondary">Kembali</a>
-    </div>
+    <?php include 'includes/sidebar.php'; ?>
+        <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: max-content; margin-top: 1rem; margin: 0 auto; display: block;">
+            <h3 class="h3">DETAIL KARYAWAN</h3>
+
+            <div class="detail-wrapper" style="margin: 0 auto; display: block;">
+                <div class="row-detail">
+                    <div class="label">Nama</div>
+                    <div class="value"><?= $d['nama'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Umur</div>
+                    <div class="value"><?= $d['umur'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Jenis Kelamin</div>
+                    <div class="value"><?= $d['jenis_kelamin'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Alamat</div>
+                    <div class="value"><?= $d['alamat'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">No. HP</div>
+                    <div class="value"><?= $d['no_hp'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Status</div>
+                    <div class="value"><?= $d['status_'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Jabatan</div>
+                    <div class="value"><?= $d['nama_jabatan'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Rating</div>
+                    <div class="value">
+                        <?php 
+                        $rating = isset($d['nilai_rating']) ? (int)$d['nilai_rating'] : 0;
+                        for ($i = 0; $i < $rating; $i++) {
+                            echo '⭐';
+                        }
+                        if ($rating == 0) echo 'Belum ada rating';
+                        ?>
+                    </div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Tanggal Bergabung</div>
+                    <div class="value"><?= $d['tgl_bergabung'] ?></div>
+                </div>
+                <div class="row-detail">
+                    <div class="label">Foto Karyawan</div>
+                    <div class="value"></div>
+                </div>
+
+                <img class="img" src="uploads/<?= $d['foto'] ?>" width="150" style="border: 2.5px solid rgb(0, 140, 255); border-radius: 10px;"> <br> <br>
+                <a href="karyawan.php" class="btn btn-outline-secondary" style="margin: 0 auto; display: block;">Kembali</a>
+
+            </div>
+
+        </div>
     
-</body>
+    </body>
 </html>

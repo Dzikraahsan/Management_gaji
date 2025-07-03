@@ -79,6 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin-bottom: 20px;
         }
+
+        /* kode responsive */
+        @media (max-width: 768px) {
+        }
         
     </style>
 </head>

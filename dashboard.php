@@ -102,6 +102,76 @@
             font-size: 20px;
         }
 
+        /* kode responsive */
+        @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+            padding: 0px;
+            width: 678px;
+        }
+
+        .container {
+            width: 100% !important;
+            padding: 0 0px;
+        }
+
+        .header h4 {
+            font-size: 16px;
+            margin-left: -29.5rem
+        }
+
+        .marquee-wrapper {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .marquee-content h3 {
+            font-size: 13px;
+            padding: 4px;
+            margin-left: 10px;
+        }
+
+        .p-3 {
+            font-size: 13px !important;
+            padding: 0.75rem !important;
+        }
+
+        .kartu-karyawan {
+            width: 150px !important;
+            margin-left: 15px;
+            margin-top: 10px;
+            margin: 27.5px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+        }
+
+        .foto-karyawan {
+            height: 150px;
+            width: 100%;
+        }
+
+        h6 {
+            font-size: 15px;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .card-title {
+            font-size: 12.5px !important;
+        }
+
+        .p-3 {
+            width: 380px;
+        }
+
+        .b {
+            margin-left: 5px;
+        }
+
+        }
+
+
     </style>
 </head>
 
@@ -146,7 +216,7 @@
             </div>
         </div>
             <h6>
-                <b>Daftar Karyawan Terbaru:</b>
+                <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
         <div class="d-flex flex-wrap">
             <?php
@@ -162,7 +232,7 @@
                 <div class="card kartu-karyawan shadow-sm">
                     <img src="uploads/' . $row['foto'] . '" class="foto-karyawan card-img-top">
                     <div class="card-body text-center">
-                        <h5 class="card-title mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
+                        <h5 class="card-title w-100 mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
                     </div>
                 </div>';
             }

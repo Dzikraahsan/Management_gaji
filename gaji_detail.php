@@ -36,6 +36,55 @@ $d = mysqli_fetch_array($data);
             margin-left: 0rem;
             margin-top: 15px;
         }
+
+        .detail-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .row-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #222;
+            min-width: 150px;
+            white-space: nowrap;
+        }
+
+        .value {
+            color: #444;
+            text-align: right;
+            word-break: break-word;
+        }
+
+        /* kode responsive */
+        @media (max-width: 768px) {
+        .row-detail {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .label, .value {
+            text-align: left;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-weight: 700;
+        }
+
+        .container, .rectangle {
+            height: 150vh;
+        }
+    }
         
     </style>
 </head>
@@ -43,15 +92,44 @@ $d = mysqli_fetch_array($data);
 
     <div class="d-flex">
         <?php include 'includes/sidebar.php'; ?>
-            <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 450px;">
+            <div class="container shadow p-5 mb-5 bg-body-tertiary rounded rectangle" style="width: 900px; height: max-content; margin-top: 1rem;">
                 <h2>DETAIL GAJI KARYAWAN</h2>
-                    <p><strong>Nama Karyawan  :  </strong> <?= $d['nama'] ?></p>
-                    <p><strong>Bulan                           :  </strong> <?= $d['bulan'] ?></p>
-                    <p><strong>Gaji Pokok               :  </strong> Rp <?= number_format($d['gaji_pokok']) ?></p>
-                    <p><strong>Tarif Lembur           :  </strong> Rp <?= number_format($d['tarif_lembur']) ?></p>
-                    <p><strong>Bonus Rating          :  </strong> <?= number_format($d['bonus_rating']) ?></p>
-                    <p><strong>Total Gaji                  :  </strong> Rp <?= number_format($d['total_gaji']) ?></p>
-                <a href="gaji.php" class="btn btn-outline-secondary">Kembali</a>
+                    <div class="detail-wrapper">
+
+                        <div class="row-detail">
+                            <span class="label">Nama</span>
+                            <span class="value"><?= $d['nama'] ?></span>
+                        </div>
+
+                        <div class="row-detail">
+                            <span class="label">Bulan</span>
+                            <span class="value"><?= $d['bulan'] ?></span>
+                        </div>
+
+                        <div class="row-detail">
+                            <span class="label">Gaji Pokok</span>
+                            <span class="value">Rp <?= number_format($d['gaji_pokok']) ?></span>
+                        </div>
+
+                        <div class="row-detail">
+                            <span class="label">Tarif Lembur</span>
+                            <span class="value">Rp <?= number_format($d['tarif_lembur']) ?></span>
+                        </div>
+
+                        <div class="row-detail">
+                            <span class="label">Bonus Rating</span>
+                            <span class="value"><?= number_format($d['bonus_rating']) ?></span>
+                        </div>
+
+                        <div class="row-detail">
+                            <span class="label">Total Gaji</span>
+                            <span class="value">Rp <?= number_format($d['total_gaji']) ?></span>
+                        </div>
+
+                         <a href="gaji.php" class="btn btn-outline-secondary" style="margin: 0 auto; display: block; margin-top: 15px;">Kembali</a>
+
+                    </div>
+
             </div>
     </div>
     

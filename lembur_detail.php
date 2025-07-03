@@ -37,17 +37,60 @@ $d = mysqli_fetch_array($data);
             margin-top: 15px
         }
 
+         .detail-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .row-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #222;
+            min-width: 150px;
+            white-space: nowrap;
+        }
+
+        .value {
+            color: #444;
+            text-align: right;
+            word-break: break-word;
+        }
+
+        /* kode responsive */
+
+
     </style>
 </head>
 <body>
 
     <div class="d-flex">
         <?php include 'includes/sidebar.php'; ?>
-        <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: 275px;">
+        <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: max-content; margin-top: 1rem;">
             <h2>DETAIL TARIF LEMBUR</h2>
-                <p><strong>Jabatan                :</strong> <?= $d['nama_jabatan'] ?></p>
-                <p><strong>Tarif Per Jam    :</strong> Rp <?= number_format($d['tarif_per_jam']) ?></p>
-            <a href="lembur.php" class="btn btn-outline-secondary">Kembali</a>
+                <div class="detail-wrapper">
+
+                    <div class="row-detail">
+                        <span class="label">Jabatan</span>
+                        <span class="value"><?= $d['nama_jabatan'] ?></span>
+                    </div>
+
+                    <div class="row-detail">
+                        <span class="label">Gaji Pokok</span>
+                        <span class="value">Rp <?= number_format($d['tarif_per_jam']) ?></span>
+                    </div>
+
+                    <a href="lembur.php" class="btn btn-outline-secondary" style="margin: 0 auto; display: block; margin-top: 15px;">Kembali</a>
+
+                </div>
+
         </div>
         
     </div>

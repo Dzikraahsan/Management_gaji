@@ -24,13 +24,89 @@
             font-size: 30px;
         }
 
+        /* kode responsive */
+        @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+            padding: 0px;
+            width: 678px;
+        }
+
+        .h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .no {
+            font-size: 12.5px;
+        }
+
+        .nama {
+            font-size: 12.5px;
+        }
+
+        .bulan {
+            font-size: 12.5px;
+        }
+
+        .nilai {
+            font-size: 12.5px;
+        }
+
+        .aksi {
+            font-size: 12.5px;
+        }
+
+        .table-primary {
+            font-size: 10px;
+        }
+
+        .col-no {
+            width: 5%;
+            text-align: center;
+        }
+
+        .col-nama {
+            width: 25%;
+        }
+
+        .col-bulan {
+            width: 15%;
+            text-align: left;
+        }
+
+        .col-nilai {
+            width: 10%;
+            text-align: left;
+        }
+
+        .col-aksi {
+            width: 30%;
+            text-align: center;
+            white-space: nowrap; /* Biar tombol gak bikin kolom melebar */
+        }
+
+        .aksi-btn {
+            display: inline-block;
+            text-align: center;
+            font-size: 10px;          /* Ukuran teks kecil */
+            padding: 2px 6px;         /* Padding kecil untuk tinggi+lebar tombol */
+            margin: 2px;
+            line-height: 1;           /* Supaya tinggi teks gak tinggi-tinggi amat */
+            border-radius: 4px;
+            white-space: nowrap;
+            width: fit-content;       /* Ini kuncinya: tombol nyesuaiin isi! */
+        }
+
+    }
+
     </style>
 </head>
 <body>
 <div class="d-flex">
     <?php include 'includes/sidebar.php'; ?>
     <div class="container mt-4" style="width: 900px;">
-        <h3>DAFTAR RATING KARYAWAN</h3>
+        <h3 class="h3">DAFTAR RATING KARYAWAN</h3>
 
         <!-- Kode untuk menambahkan data karyawan -->
         <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
@@ -59,11 +135,11 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr class="table-primary">
-                    <th>No</th>
-                    <th>Nama Karyawan</th>
-                    <th>Bulan</th>
-                    <th>Nilai Rating</th>
-                    <th>Aksi</th>
+                    <th class="col-no">No</th>
+                    <th class="col-nama">Nama Karyawan</th>
+                    <th class="col-bulan">Bulan</th>
+                    <th class="col-nilai">Rating</th>
+                    <th class="col-aksi">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,14 +151,14 @@
                 while ($row = mysqli_fetch_assoc($query)) {
                     echo '
                     <tr>
-                        <td>' . $no++ . '</td>
-                        <td>' . $row['nama'] . '</td>
-                        <td>' . $row['bulan'] . '</td>
-                        <td>' . $row['nilai_rating'] . '</td>
+                        <td class="no">' . $no++ . '</td>
+                        <td class="nama">' . $row['nama'] . '</td>
+                        <td class="bulan">' . $row['bulan'] . '</td>
+                        <td class="nilai">' . $row['nilai_rating'] . '</td>
                         <td>
-                            <a href="rating_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-warning">Edit</a> 
-                            <a href="rating_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm">Detail</a>
-                            <a href="rating_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
+                            <a href="rating_edit.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-warning aksi-btn">Edit</a> 
+                            <a href="rating_detail.php?id=' . $row['id'] . '" class="btn btn-outline-info btn-sm aksi-btn">Detail</a>
+                            <a href="rating_hapus.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger aksi-btn" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
                         </td>
                     </tr>';
                 }

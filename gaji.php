@@ -29,13 +29,90 @@ include 'includes\sidebar.php';
             font-size: 30px;
         }
 
+        /* kode responsive */
+        @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+            padding: 0px;
+            width: 678px;
+        }
+
+        .h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .no {
+            font-size: 12.5px;
+        }
+
+        .nama {
+            font-size: 12.5px;
+        }
+
+        .bulan {
+            font-size: 12.5px;
+        }
+
+        .gaji {
+            font-size: 12.5px;
+        }
+
+        .aksi {
+            font-size: 12.5px;
+        }
+
+        .table-primary {
+            font-size: 10px;
+        }
+
+        .col-no {
+            width: 5%;
+            text-align: center;
+        }
+
+        .col-nama {
+            width: 25%;
+        }
+
+        .col-bulan {
+            width: 15%;
+            text-align: left;
+        }
+
+        .col-gaji {
+            width: 12.5%;
+            text-align: left;
+        }
+
+        .col-aksi {
+            width: 30%;
+            text-align: center;
+            white-space: nowrap; /* Biar tombol gak bikin kolom melebar */
+        }
+
+        .aksi-btn {
+            display: inline-block;
+            text-align: center;
+            font-size: 10px;          /* Ukuran teks kecil */
+            padding: 2px 6px;         /* Padding kecil untuk tinggi+lebar tombol */
+            margin: 2px;
+            line-height: 1;           /* Supaya tinggi teks gak tinggi-tinggi amat */
+            border-radius: 4px;
+            white-space: nowrap;
+            width: fit-content;       /* Ini kuncinya: tombol nyesuaiin isi! */
+        }
+
+    }
+
+
     </style>
     <title>Document</title>
 </head>
 <body>
     
 <div class="container mt-4" style="width: 900px;">
-    <h3>DAFTAR GAJI KARYAWAN</h3>
+    <h3 class="h3">DAFTAR GAJI KARYAWAN</h3>
 
     <!-- Kode untuk menambahkan data karyawan -->
         <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
@@ -65,34 +142,37 @@ include 'includes\sidebar.php';
     <table class="table table-bordered">
         <thead class="table-primary">
             <tr>
-                <th>No</th>
-                <th>Nama Karyawan</th>
-                <th>Bulan</th>
-                <th>Total Gaji</th>
-                <th>Aksi</th>
+                <th class="col-no">No</th>
+                <th class="col-nama">Nama</th>
+                <th class="col-bulan">Bulan</th>
+                <th class="col-gaji">Total Gaji</th>
+                <th class="col-aksi">Aksi</th>
             </tr>
         </thead>
         <tbody>
-            <?php
-            $no = 1;
-            $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
-                                             FROM gaji 
-                                             JOIN karyawan ON gaji.karyawan_id = karyawan.id 
-                                             ORDER BY gaji.bulan DESC");
-            while($data = mysqli_fetch_array($query)) {
-            ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $data['nama'] ?></td>
-                <td><?= $data['bulan'] ?></td>
-                <td>Rp <?= number_format($data['total_gaji'], 0, ',', '.') ?></td>
-                <td>
-                    <a href="gaji_edit.php?id=<?= $data['id'] ?>" class="btn btn-outline-warning btn-sm">Edit</a> 
-                    <a href="gaji_detail.php?id=<?= $data['id'] ?>" class="btn btn-outline-info btn-sm">Detail</a>
-                    <a href="gaji_hapus.php?id=<?= $data['id'] ?>" class="btn btn-outline-danger btn-sm" onclick="hapusDataGaji(event, this, <?= $data['id'] ?>)">Hapus</a>
-                </td>
-            </tr>
-            <?php } ?>
+            <div class="d-flex flex-wrap">
+                <?php
+                $no = 1;
+                $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
+                                                FROM gaji 
+                                                JOIN karyawan ON gaji.karyawan_id = karyawan.id 
+                                                ORDER BY gaji.bulan DESC");
+
+                while($data = mysqli_fetch_array($query)) {
+                    echo "<tr>
+                            <td class='no'>" . $no++ . "</td>
+                            <td class='nama'>" . $data['nama'] . "</td>
+                            <td class='bulan'>" . $data['bulan'] . "</td>
+                            <td class='gaji'>Rp " . number_format($data['total_gaji'], 0, ',', '.') . "</td>
+                            <td>
+                                <a href='gaji_edit.php?id=" . $data['id'] . "' class='btn btn-outline-warning btn-sm aksi-btn'>Edit</a> 
+                                <a href='gaji_detail.php?id=" . $data['id'] . "' class='btn btn-outline-info btn-sm aksi-btn'>Detail</a>
+                                <a href='gaji_hapus.php?id=" . $data['id'] . "' class='btn btn-outline-danger btn-sm aksi-btn' onclick=\"hapusDataGaji(event, this, " . $data['id'] . ")\">Hapus</a>
+                            </td>
+                        </tr>";
+                }
+                ?>
+            </div>
         </tbody>
     </table>
 </div>
