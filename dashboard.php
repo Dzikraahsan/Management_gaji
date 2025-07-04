@@ -177,8 +177,8 @@
             grid-template-columns: repeat(2, 1fr); /* 2 kolom */
             gap: 0px;
             justify-items: center;
-            margin-top: 10px;
-            margin-left: 0px;
+            margin-top: 20px;
+            margin-left: 20px;
         }
 
         }
@@ -241,7 +241,7 @@
 
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-                <div class="card kartu-karyawan shadow-sm">
+                <div class="card kartu-karyawan karyawan-grid shadow-sm">
                     <img src="uploads/' . $row['foto'] . '" class="foto-karyawan card-img-top">
                     <div class="card-body text-center">
                         <h5 class="card-title w-100 mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
