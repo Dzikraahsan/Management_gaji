@@ -103,7 +103,7 @@
         }
 
         /* kode responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 678px) {
         body {
             font-size: 14px;
             padding: 0px;
