@@ -1,6 +1,5 @@
 <?php
 include 'koneksi.php';
-include 'includes\header.php';
 $id = $_GET['id'];
 $data = mysqli_query($conn, "SELECT * FROM karyawan
     JOIN jabatan ON karyawan.jabatan_id = jabatan.id 
