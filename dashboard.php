@@ -172,6 +172,7 @@
         }
 
         .karyawan-grid {
+            width: 550px;
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 kolom */
             gap: 0px;
@@ -229,7 +230,7 @@
             <h6>
                 <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
-        <div class="d-flex flex-wrap" style="width: 678px; max-width: 768px;">
+        <div class="d-flex flex-wrap">
             <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
                                           FROM karyawan 
