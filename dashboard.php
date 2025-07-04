@@ -107,7 +107,7 @@
         body {
             font-size: 14px;
             padding: 0px;
-            width: 678px;
+            width: 768px;
         }
 
         .container {
