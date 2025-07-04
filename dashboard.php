@@ -107,7 +107,7 @@
         body {
             font-size: 14px;
             padding: 0px;
-            width: 678px;
+            width: 768px;
         }
 
         .container {
@@ -117,7 +117,7 @@
 
         .header h4 {
             font-size: 16px;
-            margin-left: -29.5rem
+            margin-left: -23.5rem
         }
 
         .marquee-wrapper {
@@ -139,14 +139,15 @@
         }
 
         .kartu-karyawan {
-            width: 150px !important;
+            width: 180px !important;
+            height: 300px;
             margin-left: 15px;
             margin-top: 10px;
             margin: 27.5px;
         }
 
         .foto-karyawan {
-            height: 150px;
+            height: 180px;
             width: 100%;
         }
 
@@ -160,7 +161,7 @@
         }
 
         .p-3 {
-            width: 380px;
+            width: 470px;
         }
 
         .b {
@@ -174,7 +175,7 @@
             gap: 0px;
             justify-items: center;
             margin-top: 20px;
-            margin-left: 20px;
+            margin-left: 35px;
         }
 
         }
