@@ -1,16 +1,20 @@
 <?php
-
 $host = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com";
 $port = 4000;
-$user = "root";
-$pass = "";
-$dbname = "management_gaji";
+$user = "4RMsG27B571nnyi.root";
+$password = "OQPLIQwV6jO9APY5";
+$dbname = "test";
+$ssl_ca = "C:/xampp/htdocs/Sistem_Management_Gaji/isrgrootx1.pem";
 
-$koneksi = mysqli_connect($host, $user, $pass, $dbname, $port);
+// Inisialisasi koneksi
+$conn = mysqli_init();
+mysqli_ssl_set($conn, NULL, NULL, $ssl_ca, NULL, NULL);
+mysqli_real_connect($conn, $host, $user, $password, $dbname, $port, NULL, MYSQLI_CLIENT_SSL);
 
 // Cek koneksi
-if (!$koneksi) {
+if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
+} else {
+    echo "Koneksi ke TiDB berhasil dengan SSL!<br>";
 }
-
 ?>
