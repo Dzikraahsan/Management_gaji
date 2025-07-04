@@ -108,73 +108,79 @@ include 'koneksi.php';
     <title>Document</title>
 </head>
 <body>
-    
-<div class="container mt-4" style="width: 900px;">
-  <?php include 'includes/sidebar.php'; ?>
-    <h3 class="h3">DAFTAR GAJI KARYAWAN</h3>
 
-    <!-- Kode untuk menambahkan data karyawan -->
-        <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
-            <div id="notif-success" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
-                ✅ Data karyawan berhasil ditambahkan.
-            </div>
-        <?php endif; ?>
+<div class="d-flex">
+    <?php include 'includes/sidebar.php'; ?>
 
+        <div class="container mt-4" style="width: 900px;">
+            <h3 class="h3">DAFTAR GAJI KARYAWAN</h3>
 
-        <!-- Kode untuk menghapus data karyawan -->
-        <?php if (isset($_GET['hapus']) && $_GET['hapus'] === 'sukses') : ?>
-            <div id="notif-alert" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
-                ✅ Data karyawan berhasil dihapus.
-            </div>
-        <?php endif; ?>
+            <!-- Kode untuk menambahkan data karyawan -->
+                <?php if (isset($_GET['tambah']) && $_GET['tambah'] === 'sukses') : ?>
+                    <div id="notif-success" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
+                        ✅ Data karyawan berhasil ditambahkan.
+                    </div>
+                <?php endif; ?>
 
 
-        <!-- Kode untuk mengedit data karyawan -->
-        <?php if (isset($_GET['edit']) && $_GET['edit'] == 'sukses') : ?>
-            <div id="notif-edit" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
-                ✅ Data karyawan berhasil diperbarui.
-            </div>
-        <?php endif; ?>
+                <!-- Kode untuk menghapus data karyawan -->
+                <?php if (isset($_GET['hapus']) && $_GET['hapus'] === 'sukses') : ?>
+                    <div id="notif-alert" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
+                        ✅ Data karyawan berhasil dihapus.
+                    </div>
+                <?php endif; ?>
 
-    <a href="gaji_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Gaji</a>
 
-    <table class="table table-bordered">
-        <thead class="table-primary">
-            <tr>
-                <th class="col-no">No</th>
-                <th class="col-nama">Nama</th>
-                <th class="col-bulan">Bulan</th>
-                <th class="col-gaji">Total Gaji</th>
-                <th class="col-aksi">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <div class="d-flex flex-wrap">
-                <?php
-                $no = 1;
-                $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
-                                                FROM gaji 
-                                                JOIN karyawan ON gaji.karyawan_id = karyawan.id 
-                                                ORDER BY gaji.bulan DESC");
+                <!-- Kode untuk mengedit data karyawan -->
+                <?php if (isset($_GET['edit']) && $_GET['edit'] == 'sukses') : ?>
+                    <div id="notif-edit" class="transition-all duration-700 ease-in-out mb-3 mx-2 p-3 bg-green-100 text-green-800 border border-green-300 rounded shadow">
+                        ✅ Data karyawan berhasil diperbarui.
+                    </div>
+                <?php endif; ?>
 
-                while($data = mysqli_fetch_array($query)) {
-                    echo "<tr>
-                            <td class='no'>" . $no++ . "</td>
-                            <td class='nama'>" . $data['nama'] . "</td>
-                            <td class='bulan'>" . $data['bulan'] . "</td>
-                            <td class='gaji'>Rp " . number_format($data['total_gaji'], 0, ',', '.') . "</td>
-                            <td>
-                                <a href='gaji_edit.php?id=" . $data['id'] . "' class='btn btn-outline-warning btn-sm aksi-btn'>Edit</a> 
-                                <a href='gaji_detail.php?id=" . $data['id'] . "' class='btn btn-outline-info btn-sm aksi-btn'>Detail</a>
-                                <a href='gaji_hapus.php?id=" . $data['id'] . "' class='btn btn-outline-danger btn-sm aksi-btn' onclick=\"hapusDataGaji(event, this, " . $data['id'] . ")\">Hapus</a>
-                            </td>
-                        </tr>";
-                }
-                ?>
-            </div>
-        </tbody>
-    </table>
+            <a href="gaji_tambah.php" class="btn btn-outline-primary mb-3">+ Tambah Gaji</a>
+
+            <table class="table table-bordered">
+                <thead class="table-primary">
+                    <tr>
+                        <th class="col-no">No</th>
+                        <th class="col-nama">Nama</th>
+                        <th class="col-bulan">Bulan</th>
+                        <th class="col-gaji">Total Gaji</th>
+                        <th class="col-aksi">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="d-flex flex-wrap">
+                        <?php
+                        $no = 1;
+                        $query = mysqli_query($conn, "SELECT gaji.id, karyawan.nama, gaji.nama_karyawan, gaji.bulan, gaji.total_gaji 
+                                                        FROM gaji 
+                                                        JOIN karyawan ON gaji.karyawan_id = karyawan.id 
+                                                        ORDER BY gaji.bulan DESC");
+
+                        while($data = mysqli_fetch_array($query)) {
+                            echo "<tr>
+                                    <td class='no'>" . $no++ . "</td>
+                                    <td class='nama'>" . $data['nama'] . "</td>
+                                    <td class='bulan'>" . $data['bulan'] . "</td>
+                                    <td class='gaji'>Rp " . number_format($data['total_gaji'], 0, ',', '.') . "</td>
+                                    <td>
+                                        <a href='gaji_edit.php?id=" . $data['id'] . "' class='btn btn-outline-warning btn-sm aksi-btn'>Edit</a> 
+                                        <a href='gaji_detail.php?id=" . $data['id'] . "' class='btn btn-outline-info btn-sm aksi-btn'>Detail</a>
+                                        <a href='gaji_hapus.php?id=" . $data['id'] . "' class='btn btn-outline-danger btn-sm aksi-btn' onclick=\"hapusDataGaji(event, this, " . $data['id'] . ")\">Hapus</a>
+                                    </td>
+                                </tr>";
+                        }
+                        ?>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+
 </div>
+    
+
 
     <!-- Kode script untuk animasi menambahkan data karyawan -->
      <script>
