@@ -139,7 +139,7 @@
         }
 
         .kartu-karyawan {
-            width: 200px !important;
+            width: 150px !important;
             margin-left: 15px;
             margin-top: 10px;
             margin: 27.5px;
@@ -173,7 +173,7 @@
             gap: 0px;
             justify-items: center;
             margin-top: 10px;
-            margin-left: -12.5px;
+            margin-left: 0px;
         }
 
         }
