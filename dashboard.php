@@ -238,7 +238,7 @@
 
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-                <div class="card kartu-karyawan karyawan-grid shadow-sm">
+                <div class="card kartu-karyawan shadow-sm">
                     <img src="uploads/' . $row['foto'] . '" class="foto-karyawan card-img-top">
                     <div class="card-body text-center">
                         <h5 class="card-title w-100 mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
