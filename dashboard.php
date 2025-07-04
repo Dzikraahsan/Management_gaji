@@ -139,13 +139,10 @@
         }
 
         .kartu-karyawan {
-            width: 150px !important;
-            max-width: 240px;
+            width: 200px !important;
             margin-left: 15px;
             margin-top: 10px;
             margin: 27.5px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
         }
 
         .foto-karyawan {
@@ -173,7 +170,7 @@
         .karyawan-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-            gap: 20px;
+            gap: 0px;
             justify-items: center;
             margin-top: 10px;
             margin-left: -12.5px;
