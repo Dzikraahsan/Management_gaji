@@ -14,7 +14,5 @@ mysqli_real_connect($conn, $host, $user, $password, $dbname, $port, NULL, MYSQLI
 // Cek koneksi
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
-} else {
-    echo "Koneksi ke TiDB berhasil dengan SSL!<br>";
-}
+} 
 ?>
