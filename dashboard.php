@@ -140,6 +140,7 @@
 
         .kartu-karyawan {
             width: 150px !important;
+            max-width: 240px;
             margin-left: 15px;
             margin-top: 10px;
             margin: 27.5px;
@@ -167,6 +168,15 @@
 
         .b {
             margin-left: 5px;
+        }
+
+        .karyawan-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            gap: 0px;
+            justify-items: center;
+            margin-top: 10px;
+            margin-left: -7.5px;
         }
 
         }
@@ -218,7 +228,7 @@
             <h6>
                 <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap karyawan-grid">
             <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
                                           FROM karyawan 
