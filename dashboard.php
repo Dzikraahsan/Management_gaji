@@ -229,7 +229,7 @@
             <h6>
                 <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap" style="width: 678px;">
             <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
                                           FROM karyawan 
