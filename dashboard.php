@@ -227,7 +227,7 @@
             <h6>
                 <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
-        <div class="d-flex flex-wrap" style="display: grid; grid-template-columns: repeat(2, 1fr);  justify-items: center;">
+        <div class="d-flex flex-wrap">
             <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
                                           FROM karyawan 
@@ -238,7 +238,7 @@
 
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-                <div class="card kartu-karyawan shadow-sm">
+                <div class="card kartu-karyawan shadow-sm" style="display: grid; grid-template-columns: repeat(2);  justify-items: center;">
                     <img src="uploads/' . $row['foto'] . '" class="foto-karyawan card-img-top">
                     <div class="card-body text-center">
                         <h5 class="card-title w-100 mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
