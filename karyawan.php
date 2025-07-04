@@ -226,7 +226,7 @@
 
 
     <!-- Kode untuk footer -->
-    <?php include 'includes\footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 </html>
