@@ -1,6 +1,5 @@
 <?php
 include 'koneksi.php';
-include 'includes\sidebar.php';
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +110,7 @@ include 'includes\sidebar.php';
 <body>
     
 <div class="container mt-4" style="width: 900px;">
+  <?php include 'includes/sidebar.php'; ?>
     <h3 class="h3">DAFTAR GAJI KARYAWAN</h3>
 
     <!-- Kode untuk menambahkan data karyawan -->
