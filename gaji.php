@@ -263,7 +263,7 @@ include 'koneksi.php';
 
     <!-- Pembatas -->
 
-
+<?php include 'includes\footer.php'; ?>
 </body>
 </html>
 
