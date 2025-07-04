@@ -173,10 +173,10 @@
         .karyawan-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-            gap: 0px;
+            gap: 20px;
             justify-items: center;
             margin-top: 10px;
-            margin-left: -7.5px;
+            margin-left: -12.5px;
         }
 
         }
