@@ -103,7 +103,7 @@
         }
 
         /* kode responsive */
-        @media (max-width: 678px) {
+        @media (max-width: 768px) {
         body {
             font-size: 14px;
             padding: 0px;
@@ -143,6 +143,10 @@
             margin-left: 15px;
             margin-top: 10px;
             margin: 27.5px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            gap: 0px;
+            justify-items: center;
         }
 
         .foto-karyawan {
