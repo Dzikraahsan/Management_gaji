@@ -4,7 +4,7 @@ $port = 4000;
 $user = "4RMsG27B571nnyi.root";
 $password = "OQPLIQwV6jO9APY5";
 $dbname = "test";
-$ssl_ca = "C:/xampp/htdocs/Sistem_Management_Gaji/isrgrootx1.pem";
+$ssl_ca = __DIR__ . "/isrgrootx1.pem";
 
 // Inisialisasi koneksi
 $conn = mysqli_init();
