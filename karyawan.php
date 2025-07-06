@@ -128,7 +128,7 @@
 
                 echo '
                     <div class="card kartu-karyawan shadow-sm" id="karyawan-' . $row['id'] . '">
-                    <img src="uploads/' . $row['foto'] . '" class="foto-karyawan card-img-top">
+                    <img src="' . $row['foto'] . '" class="foto-karyawan card-img-top" onerror="this.onerror=null;this.src=\'default.jpg\';">
                     <div class="card-body text-center align-items: center;">
                         <h5 class="card-title mb-1" style="font-size: 18px;">' . $row['nama'] . '</h5>
                         <div class="text-warning mb-1">Rating: ' . $bintang . '</div>

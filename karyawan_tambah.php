@@ -29,10 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ==== ✅ UPLOAD FOTO KE CLOUDINARY ====
     $url_foto = '';
     if (isset($_FILES['foto']) && $_FILES['foto']['tmp_name'] != '') {
-        $upload = $cloudinary->uploadApi()->upload($_FILES['foto']['tmp_name'], [
-            'folder' => 'karyawan_foto'
-        ]);
-        $url_foto = $upload['secure_url']; // simpan URL gambar
+        try {
+            $upload = $cloudinary->uploadApi()->upload($_FILES['foto']['tmp_name'], [
+                'folder' => 'karyawan_foto'
+            ]);
+            $url_foto = $upload['secure_url']; // simpan URL gambar
+        } catch (Exception $e) {
+            echo "<div class='alert alert-danger'>Gagal mengupload foto: " . $e->getMessage() . "</div>";
+        }
     }
 
     // ==== ✅ SIMPAN KE DATABASE ====
@@ -52,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ob_end_flush(); ?>
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -66,7 +71,7 @@ ob_end_flush(); ?>
         body {
             font-family: "Lexend Deca", sans-serif;
             font-optical-sizing: auto;
-            font-weight: <weight>;
+            font-weight: normal;
             font-style: normal;
         }
 
@@ -129,7 +134,7 @@ ob_end_flush(); ?>
             </div>
             <div class="mb-3">
                 <label class="form-label">Foto</label>
-                <input type="file" name="foto" class="form-control" accept="image/*" required>
+                <input type="file" name="foto" class="form-control" accept="image/*" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Rating Bulan Ini</label>

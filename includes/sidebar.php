@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px; min-height: 200vh; height: max-content;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px; min-height: 210vh; height: max-content;">
         <a href="dashboard.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <img src="uploads/Manchester City logo 1997 - 2016.png" alt="Logo" width="60" class="me-2">
         </a>
