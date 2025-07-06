@@ -18,10 +18,6 @@ if
     $tmp = $_FILES['foto']['tmp_name'];
     $upload_dir = 'uploads/';
 
-        // Bikin folder 'uploads' kalau belum ada
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 755, true); // izin penuh
-    }
 
     // Bersihin nama file dari karakter aneh
     $foto = preg_replace("/[^a-zA-Z0-9\._-]/", "_", $foto);
