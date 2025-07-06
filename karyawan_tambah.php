@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Simpan data karyawan
-    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto, tgl_bergabung)
-                              VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto', '$tgl_bergabung')");
+    $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto, nilai_rating, tgl_bergabung)
+                              VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto', '$nilai_rating', '$tgl_bergabung')");
 
     if ($query) {
         $karyawan_id = mysqli_insert_id($conn);

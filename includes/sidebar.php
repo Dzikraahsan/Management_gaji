@@ -15,17 +15,6 @@
             font-weight: <weight>;
             font-style: normal;
         }
-
-        .dynamic-btn {
-            color: #212529;
-            border: 1px solid #212529;
-            background-color: transparent;
-            }
-            .dynamic-btn:hover {
-            background-color: #212529;
-            color: #fff;
-            }
-
         
     </style>
 </head>
