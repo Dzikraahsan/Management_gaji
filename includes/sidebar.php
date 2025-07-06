@@ -43,7 +43,7 @@
             <li><a href="rating.php" class="nav-link text-white">Daftar Rating</a></li>
             <li><a href="lembur.php" class="nav-link text-white">Tarif Lembur</a></li>
             <li><a href="gaji.php" class="nav-link text-white">Gaji Karyawan</a></li>
-            <a href="https://portfolio-dusky-chi-61.vercel.app/" class="btn btn-outline-light mb-3" style="margin-top: 1rem;">Kembali</a>
+            <a href="https://portfolio-dusky-chi-61.vercel.app/project.html class="btn btn-outline-light mb-3" style="margin-top: 1rem;">Kembali</a>
         </ul>
     </div>
 </body>
