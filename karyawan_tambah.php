@@ -17,6 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tmp = $_FILES['foto']['tmp_name'];
     $upload_dir = 'uploads/';
 
+        // Bikin folder 'uploads' kalau belum ada
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true); // izin penuh
+    }
+
+    // Bersihin nama file dari karakter aneh
+    $foto = preg_replace("/[^a-zA-Z0-9\._-]/", "_", $foto);
+
+
     if ($foto != "") {
         move_uploaded_file($tmp, $upload_dir . $foto);
     }
