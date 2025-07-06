@@ -102,8 +102,9 @@ $d = mysqli_fetch_array($data);
 </head>
 <body>
 
-    <?php include 'includes/sidebar.php'; ?>
-        <div class="container shadow p-5 mb-5 bg-body-tertiary rounded" style="width: 900px; height: max-content; margin-top: 1rem; margin: 0 auto; display: block;">
+    <div class="d-flex">
+      <?php include 'sidebar.php'; ?>
+        <div class="container shadow p-5 mb-5 mt-2 bg-body-tertiary rounded" style="width: 900px; height: max-content; margin: 0 auto; display: block;">
             <h3 class="h3">DETAIL KARYAWAN</h3>
 
             <div class="detail-wrapper" style="margin: 0 auto; display: block;">
@@ -162,6 +163,9 @@ $d = mysqli_fetch_array($data);
             </div>
 
         </div>
+
+    </div>
+    
     
     </body>
 </html>

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $upload = $cloudinary->uploadApi()->upload($_FILES['foto']['tmp_name'], [
             'folder' => 'karyawan_foto'
         ]);
-        $url_foto = $upload['secure_url']; // simpan URL gambar
+        $url_foto = $upload['https://res.cloudinary.com/da4fjxm1e/image/upload/v1751782178/karyawan_foto/cbssnlbq5y0nv3jdcfd0.jpg']; // simpan URL gambar
     }
 
     // ==== ✅ SIMPAN KE DATABASE ====
