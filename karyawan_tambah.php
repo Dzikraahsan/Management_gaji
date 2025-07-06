@@ -1,7 +1,8 @@
-<?php
+<?php ob_start(); // aktifkan output buffering
 include 'koneksi.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if
+($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
     $umur = $_POST['umur'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
@@ -49,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Gagal menambahkan data.";
     }
 }
-?>
+ob_end_flush(); ?>
 
 <!DOCTYPE html>
 <html lang="id">
