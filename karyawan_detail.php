@@ -153,9 +153,15 @@ $d = mysqli_fetch_array($data);
                     <div class="value"><?= $d['tgl_bergabung'] ?></div>
                 </div>
                 <div class="row-detail">
-                    <div class="label">Foto Karyawan</div>
-                    <div class="value"></div>
+                <div class="label">Foto Karyawan</div>
+                    <div class="value">
+                        <img src="<?= $karyawan['foto'] ? $karyawan['foto'] : 'assets/default.jpg' ?>" 
+                            alt="Foto Karyawan" 
+                            width="150" 
+                            style="border-radius: 8px; object-fit: cover;">
+                    </div>
                 </div>
+
 
                 <img class="img" src="uploads/<?= $d['foto'] ?>" width="150" style="border: 2.5px solid rgb(0, 140, 255); border-radius: 10px;"> <br> <br>
                 <a href="karyawan.php" class="btn btn-outline-secondary" style="margin: 0 auto; display: block;">Kembali</a>

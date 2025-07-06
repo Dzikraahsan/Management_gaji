@@ -1,21 +1,26 @@
-<?php
+<?php ob_start();
 include 'koneksi.php';
 
 if (isset($_POST['submit'])) {
     $jabatan_id = $_POST['jabatan_id'];
-    $nama_jabatan = $_POST['nama_jabatan'];
     $tarif_per_jam = $_POST['tarif_per_jam'];
+
+    // Ambil nama jabatan dari DB
+    $cek_jabatan = mysqli_query($conn, "SELECT nama_jabatan FROM jabatan WHERE id = $jabatan_id");
+    $row = mysqli_fetch_assoc($cek_jabatan);
+    $nama_jabatan = $row['nama_jabatan'];
 
     $insert = mysqli_query($conn, "INSERT INTO lembur (jabatan_id, nama_jabatan, tarif_per_jam) 
                                    VALUES ('$jabatan_id', '$nama_jabatan', '$tarif_per_jam')");
 
     if ($insert) {
         header("Location: lembur.php?tambah=sukses");
+        exit;
     } else {
         echo "Gagal menambahkan data: " . mysqli_error($conn);
     }
 }
-?>
+ob_end_flush(); ?>
 
 <!DOCTYPE html>
 <html lang="id">
