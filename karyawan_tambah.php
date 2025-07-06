@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $upload = $cloudinary->uploadApi()->upload($_FILES['foto']['tmp_name'], [
             'folder' => 'karyawan_foto'
         ]);
-        $url_foto = $upload['https://res.cloudinary.com/da4fjxm1e/image/upload/v1751782178/karyawan_foto/cbssnlbq5y0nv3jdcfd0.jpg']; // simpan URL gambar
+        $url_foto = $upload['secure_url']; // simpan URL gambar
     }
 
     // ==== ✅ SIMPAN KE DATABASE ====
@@ -93,7 +93,7 @@ ob_end_flush(); ?>
             </div>
             <div class="mb-3">
                 <label class="form-label">Jenis Kelamin</label>
-                <select name="Jenis_kelamin" class="form-select" required>
+                <select name="jenis_kelamin" class="form-select" required>
                     <option value="">-- Pilih Jenis Kelamin --</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
