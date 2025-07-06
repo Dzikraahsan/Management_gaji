@@ -1,8 +1,21 @@
 <?php ob_start(); // aktifkan output buffering
 include 'koneksi.php';
 
-if
-($_SERVER["REQUEST_METHOD"] == "POST") {
+require 'vendor/autoload.php'; // Composer autoload
+
+use Cloudinary\Cloudinary;
+
+// Koneksi ke Cloudinary
+$cloudinary = new Cloudinary([
+  'cloud' => [
+    'cloud_name' => 'da4fjxm1e',
+    'api_key'    => '343439727781135',
+    'api_secret' => 'S1DmLYGdbh0wNxc_FLygF9wi1WM',
+  ]
+]);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ambil data dari form
     $nama = $_POST['nama'];
     $umur = $_POST['umur'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
@@ -12,38 +25,29 @@ if
     $status_ = $_POST['status_'];
     $nilai_rating = $_POST['nilai_rating'];
     $tgl_bergabung = $_POST['tgl_bergabung'];
-    
-    // Proses upload foto
-    $foto = $_FILES['foto']['name'];
-    $tmp = $_FILES['foto']['tmp_name'];
-    $upload_dir = 'uploads/';
 
-
-    // Bersihin nama file dari karakter aneh
-    $foto = preg_replace("/[^a-zA-Z0-9\._-]/", "_", $foto);
-
-
-    if ($foto != "") {
-        move_uploaded_file($tmp, $upload_dir . $foto);
+    // ==== ✅ UPLOAD FOTO KE CLOUDINARY ====
+    $url_foto = '';
+    if (isset($_FILES['foto']) && $_FILES['foto']['tmp_name'] != '') {
+        $upload = $cloudinary->uploadApi()->upload($_FILES['foto']['tmp_name'], [
+            'folder' => 'karyawan_foto'
+        ]);
+        $url_foto = $upload['secure_url']; // simpan URL gambar
     }
 
-    // Simpan data karyawan
+    // ==== ✅ SIMPAN KE DATABASE ====
     $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto, nilai_rating, tgl_bergabung)
-                              VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$foto', '$nilai_rating', '$tgl_bergabung')");
+                            VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$url_foto', '$nilai_rating', '$tgl_bergabung')");
 
     if ($query) {
         $karyawan_id = mysqli_insert_id($conn);
         $bulan = date('Y-m');
-
-        // Simpan data rating
         mysqli_query($conn, "INSERT INTO rating (karyawan_id, bulan, nilai_rating) 
                              VALUES ('$karyawan_id', '$bulan', '$nilai_rating')");
-
         header("Location: karyawan.php?tambah=sukses");
-        
         exit;
     } else {
-        echo "Gagal menambahkan data.";
+        echo "❌ Gagal menambahkan data.";
     }
 }
 ob_end_flush(); ?>
