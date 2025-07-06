@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Bikin folder 'uploads' kalau belum ada
     if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0777, true); // izin penuh
+        mkdir($upload_dir, 755, true); // izin penuh
     }
 
     // Bersihin nama file dari karakter aneh
