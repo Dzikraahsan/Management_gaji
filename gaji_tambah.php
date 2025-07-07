@@ -32,7 +32,7 @@ include 'includes\sidebar.php';
 </head>
 <body>
   <div class="container mt-4" style="width: 900px;">
-    <h3>TAMBAH DATA GAJI KARYAWAN</h3>
+    <h3>TAMBAH DATA GAJI</h3>
     <form action="" method="post">
       <div class="mb-3">
         <label>Nama Karyawan</label>

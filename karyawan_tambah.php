@@ -1,7 +1,7 @@
 <?php ob_start(); // aktifkan output buffering
 include 'koneksi.php';
 
-require 'vendor/autoload.php'; // Composer autoload
+require __DIR__ . '/vendor/autoload.php';
 
 use Cloudinary\Cloudinary;
 
@@ -42,6 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ==== ✅ SIMPAN KE DATABASE ====
     $query = mysqli_query($conn, "INSERT INTO karyawan (nama, umur, jenis_kelamin, jabatan_id, alamat, no_hp, status_, foto, nilai_rating, tgl_bergabung)
                             VALUES ('$nama', '$umur', '$jenis_kelamin', '$jabatan_id', '$alamat', '$no_hp', '$status_', '$url_foto', '$nilai_rating', '$tgl_bergabung')");
+
+
+    $autoloadPath = __DIR__ . '/vendor/autoload.php';
+    if (!file_exists($autoloadPath)) {
+        die("File autoload.php tidak ditemukan. Jalankan 'composer install' dulu bro! 🛠️");
+    }
+    require $autoloadPath;
+
 
     if ($query) {
         $karyawan_id = mysqli_insert_id($conn);

@@ -102,6 +102,14 @@
             font-size: 20px;
         }
 
+        .karyawan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0px;
+            max-width: 990px;
+            margin: 0px auto 0 auto;
+        }
+
         /* kode responsive */
         @media (max-width: 768px) {
         body {
@@ -141,8 +149,7 @@
         .kartu-karyawan {
             width: 180px !important;
             height: 300px;
-            margin-left: 15px;
-            margin-top: 10px;
+            margin: 0;
             margin: 27.5px;
         }
 
@@ -168,15 +175,20 @@
             margin-left: 5px;
         }
 
-        .karyawan-grid {
-            width: 550px;
+        /* Responsive grid fix */
+       .karyawan-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-            gap: 0px;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 585px; /* Biar nggak melebar melebihi batas sidebar */
             margin-top: 20px;
-            margin-left: 35px;
+            margin-left: -15px;
         }
+
+        .kartu-karyawan {
+            width: 100%;
+        }
+    
 
         }
 
@@ -227,8 +239,9 @@
             <h6>
                 <b class="b">Daftar Karyawan Terbaru:</b>
             </h6>
-        <div class="d-flex flex-wrap">
-            <?php
+        <div class="container-fluid ">
+            <div class="karyawan-grid">
+                <?php
             $query = mysqli_query($conn, "SELECT karyawan.*, jabatan.nama_jabatan 
                                           FROM karyawan 
                                           JOIN jabatan ON karyawan.jabatan_id = jabatan.id 
@@ -238,7 +251,7 @@
 
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-                <div class="card kartu-karyawan shadow-sm" style="display: grid; grid-template-columns: repeat(2);  justify-items: center;">
+                <div class="card kartu-karyawan shadow-sm">
                     <img src="' . $row['foto'] . '" class="foto-karyawan card-img-top" onerror="this.onerror=null;this.src=\'default.jpg\';">
                     <div class="card-body text-center">
                         <h5 class="card-title w-100 mb-1" style="font-size: 13px; font-weight: 600;">' . $row['nama'] . '</h5>
@@ -246,6 +259,8 @@
                 </div>';
             }
             ?>
+            </div>
+            
         </div>
     </div>
 </div>
