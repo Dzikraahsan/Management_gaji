@@ -179,7 +179,7 @@
        .karyawan-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: none;
             max-width: 585px; /* Biar nggak melebar melebihi batas sidebar */
             margin-top: 20px;
             margin-left: -15px;
