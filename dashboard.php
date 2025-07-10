@@ -198,7 +198,7 @@
 
 <body>
 <div class="d-flex">
-    <?php include 'includes/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
     <div class="container mt-4" style="width: 905px;">
         <div class="marquee-wraper">
             <div class="marquee-content">

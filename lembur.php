@@ -95,7 +95,7 @@
 </head>
 <body>
 <div class="d-flex">
-    <?php include 'includes/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
     <div class="container mt-4" style="width: 900px;">
         <h3 class="h3">DAFTAR TARIF LEMBUR KARYAWAN</h3>
 
