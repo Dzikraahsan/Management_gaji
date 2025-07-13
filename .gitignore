@@ -1,12 +1,11 @@
-# Ignore vendor folder
-/vendor/
-
-# Ignore environment/config files
-.env
-
-# Ignore logs
-*.log
-
-# Ignore OS/system files
-.DS_Store
-Thumbs.db
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+build/
+dist/
+.venv/
+*.db
