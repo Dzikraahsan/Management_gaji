@@ -9,3 +9,6 @@ build/
 dist/
 .venv/
 *.db
+/vendor
+.env
+node_modules
