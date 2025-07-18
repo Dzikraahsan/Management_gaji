@@ -89,15 +89,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Edit Karyawan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/Organetto-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <style>
+
         body {
-            font-family: "Lexend Deca", sans-serif;
+        font-family: 'Organetto', sans-serif !important;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: normal;
         }
+
+        @font-face {
+        font-family: 'Organetto';
+        src: url('assets/fonts/Organetto-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        }
+
         body h3 {
             text-align: center;
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 <body>
