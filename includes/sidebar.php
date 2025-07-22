@@ -40,7 +40,7 @@
             <li><a href="rating.php" class="nav-link text-white">Daftar Rating</a></li>
             <li><a href="lembur.php" class="nav-link text-white">Tarif Lembur</a></li>
             <li><a href="gaji.php" class="nav-link text-white">Gaji Karyawan</a></li>
-            <a href="https://web-production-0b5d.up.railway.app/" class="btn btn-outline-light mb-3 " style=" font-size: 15px; margin-top: 1rem;">Kembali Ke Portofolio</a>
+            <a href="https://portfolio-dzikra.up.railway.app/" class="btn btn-outline-light mb-3 " style=" font-size: 15px; margin-top: 1rem;">Kembali Ke Portofolio</a>
         </ul>
     </div>
 </body>
