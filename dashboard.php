@@ -194,7 +194,7 @@
             gap: none;
             max-width: 36.5625rem; /* Biar nggak melebar melebihi batas sidebar */
             margin-top: 1.25rem;
-            margin-left: 1.875rem;
+            margin-left: -1.875rem;
         }
 
         .kartu-karyawan {
