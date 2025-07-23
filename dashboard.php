@@ -124,84 +124,83 @@
 
         /* kode responsive */
         @media (max-width: 768px) {
-        body {
-            font-size: 14px;
-            padding: 0px;
-            width: 768px;
-        }
+            body {
+                font-size: 0.875rem;
+                padding: 0;
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
 
-        .container {
-            width: 100% !important;
-            padding: 0 0px;
-        }
+            .container {
+                width: 100% !important;
+                padding: 0;
+            }
 
-        .header h4 {
-            font-size: 16px;
-            margin-left: -23.5rem
-        }
+            .header h4 {
+                font-size: 1rem;
+                text-align: center;
+                margin-left: 0;
+            }
 
-        .marquee-wrapper {
-            max-width: 100%;
-            height: auto;
-            position: relative;
-            margin-top: 1rem;
-        }
+            .marquee-wrapper {
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                margin-top: 1rem;
+            }
 
-        .marquee-content h3 {
-            font-size: 13px;
-            padding: 4px;
-            margin-left: 10px;
-        }
+            .marquee-content h3 {
+                font-size: 0.8125rem;
+                padding: 0.25rem;
+                margin-left: 0.625rem;
+            }
 
-        .p-3 {
-            font-size: 13px !important;
-            padding: 0.75rem !important;
-        }
+            .p-3 {
+                font-size: 0.8125rem !important;
+                padding: 0.75rem !important;
+                width: 100%;
+            }
 
-        .kartu-karyawan {
-            width: 180px !important;
-            height: 300px;
-            margin: 0;
-            margin: 27.5px;
-        }
+            .kartu-karyawan {
+                width: 75% !important;
+                height: 75%;
+                margin: 0;
+                margin: 1.71875rem;
+            }
 
-        .foto-karyawan {
-            height: 180px;
-            width: 100%;
-        }
+            .foto-karyawan {
+                height: 75%;
+                width: 75%;
+            }
 
-        h6 {
-            font-size: 15px;
-            margin: 1rem 0 0.5rem 0;
-        }
+            h6 {
+                font-size: 0.9375rem;
+                margin: 1rem 0 0.5rem 0;
+            }
 
-        .card-title {
-            font-size: 12.5px !important;
-        }
+            .card-title {
+                font-size: 0.78125rem !important;
+            }
 
-        .p-3 {
-            width: 470px;
-        }
+            .b {
+                margin-left: 0.3125rem;
+            }
 
-        .b {
-            margin-left: 5px;
-        }
+            /* Responsive grid fix */
+            .karyawan-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 0;
+                max-width: 100%; /* Biar nggak melebar melebihi batas sidebar */
+                margin: 1.25rem auto;
+                padding: 0 1rem;
+            }
 
-        /* Responsive grid fix */
-       .karyawan-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: none;
-            max-width: 585px; /* Biar nggak melebar melebihi batas sidebar */
-            margin-top: 20px;
-            margin-left: -30px;
-        }
-
-        .kartu-karyawan {
-            width: 100%;
-        }
-    
-
+            .kartu-karyawan {
+                width: 100%;
+            }
+        
         }
 
 
